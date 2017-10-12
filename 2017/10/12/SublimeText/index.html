@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+
+
+
+
+  <meta name="keywords" content="SublimeText3,SublimeText3插件,SublimeText3快捷键," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="官网 http://www.sublimetext.com/  插件 https://packagecontrol.io  插件控制台安装Package Control 安装方式一：    1.控制台是通过快捷键[ctrl+`]    2.视图 &amp;gt; 显示控制台菜单访问的。一旦打开，将下面的Python代码粘贴到控制台中。点击回车进行安装1import urllib.request,os,ha">
+<meta name="keywords" content="SublimeText3,SublimeText3插件,SublimeText3快捷键">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SublimeText3">
+<meta property="og:url" content="http://www.love2157dream.top/2017/10/12/SublimeText/index.html">
+<meta property="og:site_name" content="Love2157dream">
+<meta property="og:description" content="官网 http://www.sublimetext.com/  插件 https://packagecontrol.io  插件控制台安装Package Control 安装方式一：    1.控制台是通过快捷键[ctrl+`]    2.视图 &amp;gt; 显示控制台菜单访问的。一旦打开，将下面的Python代码粘贴到控制台中。点击回车进行安装1import urllib.request,os,ha">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-12T08:16:51.461Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SublimeText3">
+<meta name="twitter:description" content="官网 http://www.sublimetext.com/  插件 https://packagecontrol.io  插件控制台安装Package Control 安装方式一：    1.控制台是通过快捷键[ctrl+`]    2.视图 &amp;gt; 显示控制台菜单访问的。一旦打开，将下面的Python代码粘贴到控制台中。点击回车进行安装1import urllib.request,os,ha">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":27,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.love2157dream.top/2017/10/12/SublimeText/"/>
+
+
+
+
+
+  <title>SublimeText3 | Love2157dream</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/love2157dream"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/github.png" alt="Fork me on GitHub" data-canonical-src="/images/github.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Love2157dream</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">遇见·懂得·珍惜</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.love2157dream.top/2017/10/12/SublimeText/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁磊">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/liang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Love2157dream">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SublimeText3</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-12T09:58:34+08:00">
+                2017-10-12 09:58:34
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-10-12T16:16:51+08:00">
+                2017-10-12 16:16:51
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SublimeText3/" itemprop="url" rel="index">
+                    <span itemprop="name">SublimeText3</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,708
+                </span>字
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>分钟
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h2><ul>
+<li><a href="http://www.sublimetext.com/" target="_blank" rel="external">http://www.sublimetext.com/</a></li>
+</ul>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul>
+<li><a href="https://packagecontrol.io" target="_blank" rel="external">https://packagecontrol.io</a></li>
+</ul>
+<h2 id="插件控制台安装"><a href="#插件控制台安装" class="headerlink" title="插件控制台安装"></a>插件控制台安装</h2><h3 id="Package-Control-安装"><a href="#Package-Control-安装" class="headerlink" title="Package Control 安装"></a>Package Control 安装</h3><p>方式一：<br>    1.控制台是通过快捷键[ctrl+`]<br>    2.视图 &gt; 显示控制台菜单访问的。一旦打开，将下面的Python代码粘贴到控制台中。点击回车进行安装<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib.request,os,hashlib; h = <span class="string">'6f4c264a24d933ce70df5dedcf1dcaee'</span> + <span class="string">'ebe013ee18cced0ef93d5f746d80ef60'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> open(os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by)</div></pre></td></tr></table></figure></p>
+<p>方式二：<br>    1.点击<code>Preferences&gt;Browse Packages...</code>菜单<br>    2.浏览了一个文件夹中，然后到<code>Installed Packages/</code>文件夹<br>    3.下载包<a href="https://packagecontrol.io/Package%20Control.sublime-package" target="_blank" rel="external">Package Control.sublime-package</a>并复制到<code>Installed Packages/</code>的目录<br>    4.重启Sublime Text  </p>
+<h2 id="快捷键介绍"><a href="#快捷键介绍" class="headerlink" title="快捷键介绍"></a>快捷键介绍</h2><h3 id="选择类"><a href="#选择类" class="headerlink" title="选择类"></a>选择类</h3><pre><code>Ctrl+D 选中光标所占的文本，继续操作则会选中下一个相同的文本。  
+Alt+F3 选中文本按下快捷键，即可一次性选择全部的相同文本进行同时编辑。举个栗子：快速选中并更改所有相同的变量名、函数名等。
+Ctrl+L 选中整行，继续操作则继续选择下一行，效果和 Shift+↓ 效果一样。
+Ctrl+Shift+L 先选中多行，再按下快捷键，会在每行行尾插入光标，即可同时编辑这些行。
+Ctrl+Shift+M 选择括号内的内容（继续选择父括号）。举个栗子：快速选中删除函数中的代码，重写函数体代码或重写括号内里的内容。
+Ctrl+M 光标移动至括号内结束或开始的位置。
+Ctrl+Enter 在下一行插入新行。举个栗子：即使光标不在行尾，也能快速向下插入一行。
+Ctrl+Shift+Enter 在上一行插入新行。举个栗子：即使光标不在行首，也能快速向上插入一行。
+Ctrl+Shift+[ 选中代码，按下快捷键，折叠代码。
+Ctrl+Shift+] 选中代码，按下快捷键，展开代码。
+Ctrl+K+0 展开所有折叠代码。
+Ctrl+← 向左单位性地移动光标，快速移动光标。
+Ctrl+→ 向右单位性地移动光标，快速移动光标。
+shift+↑ 向上选中多行。
+shift+↓ 向下选中多行。
+Shift+← 向左选中文本。
+Shift+→ 向右选中文本。
+Ctrl+Shift+← 向左单位性地选中文本。
+Ctrl+Shift+→ 向右单位性地选中文本。
+Ctrl+Shift+↑ 将光标所在行和上一行代码互换（将光标所在行插入到上一行之前）。
+Ctrl+Shift+↓ 将光标所在行和下一行代码互换（将光标所在行插入到下一行之后）。
+Ctrl+Alt+↑ 向上添加多行光标，可同时编辑多行。
+Ctrl+Alt+↓ 向下添加多行光标，可同时编辑多行。
+</code></pre><h3 id="编辑类"><a href="#编辑类" class="headerlink" title="编辑类"></a>编辑类</h3><pre><code>Ctrl+J 合并选中的多行代码为一行。举个栗子：将多行格式的CSS属性合并为一行。
+Ctrl+Shift+D  复制光标所在整行，插入到下一行。
+Tab 向右缩进。
+Shift+Tab 向左缩进。
+Ctrl+K+K 从光标处开始删除代码至行尾。
+Ctrl+Shift+K 删除整行。
+Ctrl+/ 注释单行。
+Ctrl+Shift+/ 注释多行。
+Ctrl+K+U 转换大写。
+Ctrl+K+L 转换小写。
+Ctrl+Z 撤销。
+Ctrl+Y 恢复撤销。
+Ctrl+U 软撤销，感觉和 Gtrl+Z 一样。
+Ctrl+F2 设置书签
+Ctrl+T 左右字母互换。
+F6 单词检测拼写 
+</code></pre><h3 id="搜索类"><a href="#搜索类" class="headerlink" title="搜索类"></a>搜索类</h3><pre><code>Ctrl+F 打开底部搜索框，查找关键字。
+Ctrl+shift+F 在文件夹内查找，与普通编辑器不同的地方是sublime允许添加多个文件夹进行查找，略高端，未研究。
+Ctrl+P 打开搜索框。举个栗子：1、输入当前项目中的文件名，快速搜索文件，2、输入@和关键字，查找文件中函数名，3、输入：和数字，跳转到文件中该行代码，4、输入#和关键字，查找变量名。
+Ctrl+G 打开搜索框，自动带：，输入数字跳转到该行代码。举个栗子：在页面代码比较长的文件中快速定位。
+Ctrl+R 打开搜索框，自动带@，输入关键字，查找文件中的函数名。举个栗子：在函数较多的页面快速查找某个函数。
+Ctrl+： 打开搜索框，自动带#，输入关键字，查找文件中的变量名、属性名等。
+Ctrl+Shift+P 打开命令框。场景栗子：打开命名框，输入关键字，调用sublime text或插件的功能，例如使用package安装插件。
+Esc 退出光标多行选择，退出搜索框，命令框等。
+</code></pre><h3 id="显示类"><a href="#显示类" class="headerlink" title="显示类"></a>显示类</h3><pre><code>Ctrl+Tab 按文件浏览过的顺序，切换当前窗口的标签页。
+Ctrl+PageDown 向左切换当前窗口的标签页。
+Ctrl+PageUp 向右切换当前窗口的标签页。
+Alt+Shift+1 窗口分屏，恢复默认1屏（非小键盘的数字）
+Alt+Shift+2 左右分屏-2列
+Alt+Shift+3 左右分屏-3列
+Alt+Shift+4 左右分屏-4列
+Alt+Shift+5 等分4屏
+Alt+Shift+8 垂直分屏-2屏
+Alt+Shift+9 垂直分屏-3屏
+Ctrl+K+B 开启/关闭侧边栏。
+F11 全屏模式
+Shift+F11 免打扰模式
+</code></pre><h2 id="插件介绍"><a href="#插件介绍" class="headerlink" title="插件介绍"></a>插件介绍</h2><h3 id="MarkDown-Editing-支持Markdown语法高亮-支持Github-Favored-Markdown语法"><a href="#MarkDown-Editing-支持Markdown语法高亮-支持Github-Favored-Markdown语法" class="headerlink" title="MarkDown Editing:支持Markdown语法高亮;支持Github Favored Markdown语法;"></a><a href="https://github.com/SublimeText-Markdown/MarkdownEditing" target="_blank" rel="external">MarkDown Editing</a>:支持Markdown语法高亮;支持Github Favored Markdown语法;</h3><h3 id="MarkdownPreview-按CTRL-B生成网页HTML；在最前面添加-TOC-自动生成目录；"><a href="#MarkdownPreview-按CTRL-B生成网页HTML；在最前面添加-TOC-自动生成目录；" class="headerlink" title="MarkdownPreview:按CTRL + B生成网页HTML；在最前面添加[TOC]自动生成目录；"></a><a href="https://github.com/revolunet/sublimetext-markdown-preview" target="_blank" rel="external">MarkdownPreview</a>:按CTRL + B生成网页HTML；在最前面添加[TOC]自动生成目录；</h3><h3 id="Markdown-Extended-Extends-Monokai-不错的Markdown主题，支持对多种语言的高亮"><a href="#Markdown-Extended-Extends-Monokai-不错的Markdown主题，支持对多种语言的高亮" class="headerlink" title="Markdown Extended + Extends Monokai:不错的Markdown主题，支持对多种语言的高亮"></a><a href="https://github.com/jonschlinkert/sublime-markdown-extended" target="_blank" rel="external">Markdown Extended</a> + <a href="https://github.com/jonschlinkert/sublime-monokai-extended" target="_blank" rel="external">Extends Monokai</a>:不错的Markdown主题，支持对多种语言的高亮</h3><h3 id="OmniMarkupPreviwer-实时在浏览器中预，而MarkdownPreview是需要手动生成的和F5的。览如果双屏的话，应该具有不错的体验。快捷键如下："><a href="#OmniMarkupPreviwer-实时在浏览器中预，而MarkdownPreview是需要手动生成的和F5的。览如果双屏的话，应该具有不错的体验。快捷键如下：" class="headerlink" title="OmniMarkupPreviwer:实时在浏览器中预，而MarkdownPreview是需要手动生成的和F5的。览如果双屏的话，应该具有不错的体验。快捷键如下："></a><a href="http://theo.im/OmniMarkupPreviewer/" target="_blank" rel="external">OmniMarkupPreviwer</a>:实时在浏览器中预，而MarkdownPreview是需要手动生成的和F5的。览如果双屏的话，应该具有不错的体验。快捷键如下：</h3><pre><code>Ctrl+Alt+O: Preview Markup in Browser.
+
+Ctrl+Alt+X: Export Markup as HTML. 
+
+Ctrl+Alt+C: Copy Markup as HTML.  
+</code></pre><h3 id="WordCount-可以实时显示当前文件的字数。"><a href="#WordCount-可以实时显示当前文件的字数。" class="headerlink" title="WordCount:可以实时显示当前文件的字数。"></a><a href="https://github.com/titoBouzout/WordCount" target="_blank" rel="external">WordCount</a>:可以实时显示当前文件的字数。</h3><h3 id="ConvertToUTF8-解决-Sublime-Text的乱码问题"><a href="#ConvertToUTF8-解决-Sublime-Text的乱码问题" class="headerlink" title="ConvertToUTF8:解决 Sublime Text的乱码问题"></a><a href="https://github.com/seanliang/ConvertToUTF8" target="_blank" rel="external">ConvertToUTF8</a>:解决 Sublime Text的乱码问题</h3><h3 id="Side​Bar​Enhancements-加强侧边栏"><a href="#Side​Bar​Enhancements-加强侧边栏" class="headerlink" title="Side​Bar​Enhancements:加强侧边栏"></a><a href="https://github.com/sidebarenhancements-org/sidebarenhancements" target="_blank" rel="external">Side​Bar​Enhancements</a>:加强侧边栏</h3><h3 id="BracketHighlighter-显示我在哪个括号内"><a href="#BracketHighlighter-显示我在哪个括号内" class="headerlink" title="BracketHighlighter:显示我在哪个括号内"></a><a href="https://github.com/facelessuser/BracketHighlighter" target="_blank" rel="external">BracketHighlighter</a>:显示我在哪个括号内</h3><h3 id="Emmet-html编码快速补全，Emmet-Doc快捷键配置"><a href="#Emmet-html编码快速补全，Emmet-Doc快捷键配置" class="headerlink" title="Emmet: html编码快速补全，Emmet Doc快捷键配置"></a><a href="https://github.com/sergeche/emmet-sublime" target="_blank" rel="external">Emmet</a>: html编码快速补全，<a href="https://docs.emmet.io/cheat-sheet/" target="_blank" rel="external">Emmet Doc</a>快捷键配置</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"keys"</span>: [<span class="string">"tab"</span>], </div><div class="line">  <span class="attr">"command"</span>: <span class="string">"expand_abbreviation_by_tab"</span>, </div><div class="line"></div><div class="line">  // put comma-separated syntax selectors for which </div><div class="line">  // you want to expandEmmet abbreviations into "operand" key </div><div class="line">  // instead of SCOPE_SELECTOR.</div><div class="line">  // Examples: source.js, text.html - source</div><div class="line">  "context": [</div><div class="line">    &#123;</div><div class="line">      <span class="attr">"operand"</span>: <span class="string">"SCOPE_SELECTOR"</span>, </div><div class="line">      <span class="attr">"operator"</span>: <span class="string">"equal"</span>, </div><div class="line">      <span class="attr">"match_all"</span>: <span class="literal">true</span>, </div><div class="line">      <span class="attr">"key"</span>: <span class="string">"selector"</span></div><div class="line">    &#125;, </div><div class="line"></div><div class="line">    // run only if there's no selected text</div><div class="line">    &#123;</div><div class="line">      <span class="attr">"match_all"</span>: <span class="literal">true</span>, </div><div class="line">      <span class="attr">"key"</span>: <span class="string">"selection_empty"</span></div><div class="line">    &#125;,</div><div class="line"></div><div class="line">    // don't work if there are active tabstops</div><div class="line">    &#123;</div><div class="line">      <span class="attr">"operator"</span>: <span class="string">"equal"</span>, </div><div class="line">      <span class="attr">"operand"</span>: <span class="literal">false</span>, </div><div class="line">      <span class="attr">"match_all"</span>: <span class="literal">true</span>, </div><div class="line">      <span class="attr">"key"</span>: <span class="string">"has_next_field"</span></div><div class="line">    &#125;, </div><div class="line"></div><div class="line">    // don't work if completion popup is visible and you</div><div class="line">    // want to insert completion with Tab. If you want to</div><div class="line">    // expand Emmet with Tab even if popup is visible -- </div><div class="line">    // remove this section</div><div class="line">    &#123;</div><div class="line">      <span class="attr">"operand"</span>: <span class="literal">false</span>, </div><div class="line">      <span class="attr">"operator"</span>: <span class="string">"equal"</span>, </div><div class="line">      <span class="attr">"match_all"</span>: <span class="literal">true</span>, </div><div class="line">      <span class="attr">"key"</span>: <span class="string">"auto_complete_visible"</span></div><div class="line">    &#125;, </div><div class="line">    &#123;</div><div class="line">      <span class="attr">"match_all"</span>: <span class="literal">true</span>, </div><div class="line">      <span class="attr">"key"</span>: <span class="string">"is_abbreviation"</span></div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="自定义快捷键设置"><a href="#自定义快捷键设置" class="headerlink" title="自定义快捷键设置"></a>自定义快捷键设置</h2><h3 id="删除当前行"><a href="#删除当前行" class="headerlink" title="删除当前行"></a>删除当前行</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"keys"</span>: [<span class="string">"ctrl+d"</span>],</div><div class="line">    <span class="attr">"command"</span>:<span class="string">"run_macro_file"</span>,</div><div class="line">    <span class="attr">"args"</span>: &#123;<span class="attr">"file"</span>:<span class="string">"Packages/Default/Delete Line.sublime-macro"</span>&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="复制文件路径"><a href="#复制文件路径" class="headerlink" title="复制文件路径"></a>复制文件路径</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+c"</span>], <span class="attr">"command"</span>: <span class="string">"copy_path"</span> &#125;</div></pre></td></tr></table></figure>
+<h3 id="打开文件所在文件夹"><a href="#打开文件所在文件夹" class="headerlink" title="打开文件所在文件夹"></a>打开文件所在文件夹</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+t"</span>], <span class="attr">"command"</span>: <span class="string">"open_terminal"</span> &#125;</div></pre></td></tr></table></figure>
+<h3 id="打开文件所在项目的根目录文件夹"><a href="#打开文件所在项目的根目录文件夹" class="headerlink" title="打开文件所在项目的根目录文件夹"></a>打开文件所在项目的根目录文件夹</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; <span class="attr">"keys"</span>: [<span class="string">"ctrl+shift+alt+t"</span>], <span class="attr">"command"</span>: <span class="string">"open_terminal_project_folder"</span> &#125;</div></pre></td></tr></table></figure>
+<h3 id="chrome浏览器预览"><a href="#chrome浏览器预览" class="headerlink" title="chrome浏览器预览"></a>chrome浏览器预览</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123; <span class="attr">"keys"</span>: [<span class="string">"f2"</span>], <span class="attr">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</div><div class="line">    <span class="attr">"args"</span>: &#123;</div><div class="line">            <span class="attr">"paths"</span>: [],</div><div class="line">            <span class="attr">"application"</span>: <span class="string">"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"</span>,</div><div class="line">            <span class="attr">"extensions"</span>:<span class="string">".*"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="是否自动换行"><a href="#是否自动换行" class="headerlink" title="是否自动换行"></a>是否自动换行</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; <span class="attr">"keys"</span>: [<span class="string">"f8"</span>], <span class="attr">"command"</span>: <span class="string">"toggle_setting"</span>, <span class="attr">"args"</span>: &#123;<span class="attr">"setting"</span>: <span class="string">"word_wrap"</span>&#125;&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">---------------------------本文结束<i class="fa fa-paw"></i>感谢您的阅读---------------------------</div>
+    
+</div>
+      
+    </div>
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.png" alt="梁磊 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>如果觉得我的文章对您有用，请随意赞赏。您的支持将鼓励我继续创作！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="梁磊 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="梁磊 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    梁磊
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.love2157dream.top/2017/10/12/SublimeText/" title="SublimeText3">http://www.love2157dream.top/2017/10/12/SublimeText/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SublimeText3/" rel="tag"><i class="fa fa-tag"></i> SublimeText3</a>
+          
+            <a href="/tags/SublimeText3插件/" rel="tag"><i class="fa fa-tag"></i> SublimeText3插件</a>
+          
+            <a href="/tags/SublimeText3快捷键/" rel="tag"><i class="fa fa-tag"></i> SublimeText3快捷键</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/11/test/" rel="next" title="test">
+                <i class="fa fa-chevron-left"></i> test
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/12/Markdown语法/" rel="prev" title="Markdown语法">
+                Markdown语法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/liang.png"
+                alt="梁磊" />
+            
+              <p class="site-author-name" itemprop="name">梁磊</p>
+              <p class="site-description motion-element" itemprop="description">每天进步1%</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/love2157dream" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="2390779141@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/users/248557fda9ab/timeline" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-heartbeat"></i>简书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://juejin.im/user/57c77cfec4c971005419fd6a" target="_blank" title="掘金">
+                    
+                      <i class="fa fa-fw fa-spinner"></i>掘金</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://segmentfault.com/u/love2157dreams" target="_blank" title="segmentfault">
+                    
+                      <i class="fa fa-fw fa-free-code-camp"></i>segmentfault</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://stackoverflow.com/yourname" target="_blank" title="StackOverflow">
+                    
+                      <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#官网"><span class="nav-number">1.</span> <span class="nav-text">官网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件"><span class="nav-number">2.</span> <span class="nav-text">插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件控制台安装"><span class="nav-number">3.</span> <span class="nav-text">插件控制台安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Package-Control-安装"><span class="nav-number">3.1.</span> <span class="nav-text">Package Control 安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷键介绍"><span class="nav-number">4.</span> <span class="nav-text">快捷键介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择类"><span class="nav-number">4.1.</span> <span class="nav-text">选择类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑类"><span class="nav-number">4.2.</span> <span class="nav-text">编辑类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索类"><span class="nav-number">4.3.</span> <span class="nav-text">搜索类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示类"><span class="nav-number">4.4.</span> <span class="nav-text">显示类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件介绍"><span class="nav-number">5.</span> <span class="nav-text">插件介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MarkDown-Editing-支持Markdown语法高亮-支持Github-Favored-Markdown语法"><span class="nav-number">5.1.</span> <span class="nav-text">MarkDown Editing:支持Markdown语法高亮;支持Github Favored Markdown语法;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MarkdownPreview-按CTRL-B生成网页HTML；在最前面添加-TOC-自动生成目录；"><span class="nav-number">5.2.</span> <span class="nav-text">MarkdownPreview:按CTRL + B生成网页HTML；在最前面添加[TOC]自动生成目录；</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Markdown-Extended-Extends-Monokai-不错的Markdown主题，支持对多种语言的高亮"><span class="nav-number">5.3.</span> <span class="nav-text">Markdown Extended + Extends Monokai:不错的Markdown主题，支持对多种语言的高亮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OmniMarkupPreviwer-实时在浏览器中预，而MarkdownPreview是需要手动生成的和F5的。览如果双屏的话，应该具有不错的体验。快捷键如下："><span class="nav-number">5.4.</span> <span class="nav-text">OmniMarkupPreviwer:实时在浏览器中预，而MarkdownPreview是需要手动生成的和F5的。览如果双屏的话，应该具有不错的体验。快捷键如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WordCount-可以实时显示当前文件的字数。"><span class="nav-number">5.5.</span> <span class="nav-text">WordCount:可以实时显示当前文件的字数。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConvertToUTF8-解决-Sublime-Text的乱码问题"><span class="nav-number">5.6.</span> <span class="nav-text">ConvertToUTF8:解决 Sublime Text的乱码问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Side​Bar​Enhancements-加强侧边栏"><span class="nav-number">5.7.</span> <span class="nav-text">Side​Bar​Enhancements:加强侧边栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BracketHighlighter-显示我在哪个括号内"><span class="nav-number">5.8.</span> <span class="nav-text">BracketHighlighter:显示我在哪个括号内</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Emmet-html编码快速补全，Emmet-Doc快捷键配置"><span class="nav-number">5.9.</span> <span class="nav-text">Emmet: html编码快速补全，Emmet Doc快捷键配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义快捷键设置"><span class="nav-number">6.</span> <span class="nav-text">自定义快捷键设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除当前行"><span class="nav-number">6.1.</span> <span class="nav-text">删除当前行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制文件路径"><span class="nav-number">6.2.</span> <span class="nav-text">复制文件路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开文件所在文件夹"><span class="nav-number">6.3.</span> <span class="nav-text">打开文件所在文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开文件所在项目的根目录文件夹"><span class="nav-number">6.4.</span> <span class="nav-text">打开文件所在项目的根目录文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chrome浏览器预览"><span class="nav-number">6.5.</span> <span class="nav-text">chrome浏览器预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#是否自动换行"><span class="nav-number">6.6.</span> <span class="nav-text">是否自动换行</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">梁磊</span>
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">网站单词总数&#58;</span>
+    
+    <span title="网站单词总数">3.0k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+<div class="powered-by">
+  <i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_pv"></span>
+  </span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
