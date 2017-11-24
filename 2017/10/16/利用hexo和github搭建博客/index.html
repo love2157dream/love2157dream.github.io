@@ -82,7 +82,7 @@
 
 
 
-<meta name="description" content="安装需要安装Node.js,Git,然后利用npm完成Hexo的安装 1$ npm install -g hexo-cli 建站安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。 123$ hexo init &amp;lt;folder&amp;gt;$ cd &amp;lt;folder&amp;gt;$ npm install 新建完成后，指定文件夹的目录如下：  12345678910">
+<meta name="description" content="安装需要安装Node.js,Git,然后利用npm完成Hexo的安装 1$ npm install -g hexo-cli 建站安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。 123$ hexo init &amp;lt;folder&amp;gt;$ cd &amp;lt;fo">
 <meta name="keywords" content="hexo,github,博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用hexo和github搭建博客">
@@ -361,7 +361,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,338
+                  1,352
                 </span>字
               
 
@@ -399,13 +399,13 @@
 
       
         <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>需要安装Node.js,Git,然后利用npm完成Hexo的安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <h1 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h1><p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹中新建所需要的文件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init &lt;folder&gt;</div><div class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
 <p>新建完成后，指定文件夹的目录如下： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── .deploy       # 执行hexo deploy命令部署到GitHub上的内容目录</div><div class="line">├── public        # 执行hexo generate命令，输出的静态网页内容目录</div><div class="line">├── scaffolds     # layout模板文件目录，其中的md文件可以添加编辑</div><div class="line">├── scripts       # 扩展脚本目录，这里可以自定义一些javascript脚本</div><div class="line">├── source        # 文章源码目录，该目录下的markdown和html文件均会被hexo处理。该页面对应repo的根目录，404文件、favicon.ico文件，CNAME文件等都应该放这里，该目录下可新建页面目录。</div><div class="line">|   ├── _drafts   # 草稿文章</div><div class="line">|   └── _posts    # 发布文章</div><div class="line">├── themes        # 主题文件目录</div><div class="line">├── _config.yml   # 全局配置文件，大多数的设置都在这里</div><div class="line">└── package.json  # 应用程序数据，指明hexo的版本等信息，类似于一般软件中的关于信息</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── .deploy       # 执行hexo deploy命令部署到GitHub上的内容目录</span><br><span class="line">├── public        # 执行hexo generate命令，输出的静态网页内容目录</span><br><span class="line">├── scaffolds     # layout模板文件目录，其中的md文件可以添加编辑</span><br><span class="line">├── scripts       # 扩展脚本目录，这里可以自定义一些javascript脚本</span><br><span class="line">├── source        # 文章源码目录，该目录下的markdown和html文件均会被hexo处理。该页面对应repo的根目录，404文件、favicon.ico文件，CNAME文件等都应该放这里，该目录下可新建页面目录。</span><br><span class="line">|   ├── _drafts   # 草稿文章</span><br><span class="line">|   └── _posts    # 发布文章</span><br><span class="line">├── themes        # 主题文件目录</span><br><span class="line">├── _config.yml   # 全局配置文件，大多数的设置都在这里</span><br><span class="line">└── package.json  # 应用程序数据，指明hexo的版本等信息，类似于一般软件中的关于信息</span><br></pre></td></tr></table></figure>
 <h1 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h1><p>执行new命令，生成指定名称的文章至hexo\source_posts\postName.md。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new [layout] <span class="string">"postName"</span> <span class="comment">#新建文章</span></div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] <span class="string">"postName"</span> <span class="comment">#新建文章</span></span><br></pre></td></tr></table></figure>
 <p>Hexo 有三种默认布局：post、page 和 draft，它们分别对应不同的路径，而您自定义的其他布局和 post 相同，都将储存到 source/_posts 文件夹。</p>
 <pre><code>布局  路径
 post    source/_posts
@@ -421,60 +421,60 @@ draft   source/_drafts
 :day    建立的日期（有前导零），比如， 07
 :i_day  建立的日期（无前导零），比如， 7
 </code></pre><h2 id="草稿"><a href="#草稿" class="headerlink" title="草稿"></a>草稿</h2><p>刚刚提到了 Hexo 的一种特殊布局：draft，这种布局在建立时会被保存到 source/_drafts 文件夹，您可通过 publish 命令将草稿移动到 source/_posts 文件夹，该命令的使用方式与 new 十分类似，您也可在命令中指定 layout 来指定布局。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo publish [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
 <p>草稿默认不会显示在页面中，您可在执行时加上 –draft 参数，或是把 render_drafts 参数设为 true 来预览草稿。</p>
-<h2 id="模版（Scaffold）"><a href="#模版（Scaffold）" class="headerlink" title="模版（Scaffold）"></a>模版（Scaffold）</h2><p>在新建文章时，Hexo 会根据 scaffolds 文件夹内相对应的文件来建立文件，例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo new photo <span class="string">"My Gallery"</span></div><div class="line">在执行这行指令时，Hexo 会尝试在 scaffolds 文件夹中寻找 photo.md，并根据其内容建立文章，以下是您可以在模版中使用的变量：</div></pre></td></tr></table></figure></p>
+<h2 id="模版（Scaffold）"><a href="#模版（Scaffold）" class="headerlink" title="模版（Scaffold）"></a>模版（Scaffold）</h2><p>在新建文章时，Hexo 会根据 scaffolds 文件夹内相对应的文件来建立文件，例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new photo <span class="string">"My Gallery"</span></span><br><span class="line">在执行这行指令时，Hexo 会尝试在 scaffolds 文件夹中寻找 photo.md，并根据其内容建立文章，以下是您可以在模版中使用的变量：</span><br></pre></td></tr></table></figure></p>
 <pre><code>变量  描述
 layout  布局
 title   标题
 date    文件建立日期
-</code></pre><h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><h3 id="int"><a href="#int" class="headerlink" title="int"></a>int</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init [folder]</div></pre></td></tr></table></figure>
+</code></pre><h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><h3 id="int"><a href="#int" class="headerlink" title="int"></a>int</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
 <p>新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。</p>
-<h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new [layout] &lt;title&gt;</div></pre></td></tr></table></figure>
+<h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
 <p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
-<h3 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<h3 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <p>生成静态文件。</p>
 <pre><code>选项  描述
 -d, --deploy    文件生成后立即部署网站
 -w, --watch 监视文件变动
 该命令可以简写为
 $ hexo g
-</code></pre><h3 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo publish [layout] &lt;filename&gt;</div><div class="line">发表草稿。</div></pre></td></tr></table></figure>
-<h3 id="server"><a href="#server" class="headerlink" title="server"></a>server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/。" target="_blank" rel="external">http://localhost:4000/。</a></p>
+</code></pre><h3 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo publish [layout] &lt;filename&gt;</span><br><span class="line">发表草稿。</span><br></pre></td></tr></table></figure>
+<h3 id="server"><a href="#server" class="headerlink" title="server"></a>server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/。" target="_blank" rel="noopener">http://localhost:4000/。</a></p>
 <pre><code>选项  描述
 -p, --port  重设端口
 -s, --static    只使用静态文件
 -l, --log   启动日记记录，使用覆盖记录格式
-</code></pre><h3 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+</code></pre><h3 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>部署网站。</p>
 <pre><code>参数  描述
 -g, --generate  部署之前预先生成静态文件
 该命令可以简写为：
 $ hexo d
-</code></pre><h3 id="render"><a href="#render" class="headerlink" title="render"></a>render</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo render &lt;file1&gt; [file2] ...</div></pre></td></tr></table></figure>
+</code></pre><h3 id="render"><a href="#render" class="headerlink" title="render"></a>render</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo render &lt;file1&gt; [file2] ...</span><br></pre></td></tr></table></figure>
 <p>渲染文件。</p>
 <pre><code>参数  描述
 -o, --output    设置输出路径
-</code></pre><h3 id="migrate"><a href="#migrate" class="headerlink" title="migrate"></a>migrate</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo migrate &lt;<span class="built_in">type</span>&gt;</div></pre></td></tr></table></figure>
+</code></pre><h3 id="migrate"><a href="#migrate" class="headerlink" title="migrate"></a>migrate</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo migrate &lt;<span class="built_in">type</span>&gt;</span><br></pre></td></tr></table></figure>
 <p>从其他博客系统 迁移内容。</p>
-<h3 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div></pre></td></tr></table></figure>
+<h3 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br></pre></td></tr></table></figure>
 <p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>
-<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo list &lt;<span class="built_in">type</span>&gt;</div></pre></td></tr></table></figure>
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo list &lt;<span class="built_in">type</span>&gt;</span><br></pre></td></tr></table></figure>
 <p>列出网站资料。</p>
-<h3 id="version"><a href="#version" class="headerlink" title="version"></a>version</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo version</div></pre></td></tr></table></figure>
+<h3 id="version"><a href="#version" class="headerlink" title="version"></a>version</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo version</span><br></pre></td></tr></table></figure>
 <p>显示 Hexo 版本。</p>
-<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><h4 id="安全模式"><a href="#安全模式" class="headerlink" title="安全模式"></a>安全模式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo --safe</div></pre></td></tr></table></figure>
+<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><h4 id="安全模式"><a href="#安全模式" class="headerlink" title="安全模式"></a>安全模式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo --safe</span><br></pre></td></tr></table></figure>
 <p>在安全模式下，不会载入插件和脚本。当您在安装新插件遭遇问题时，可以尝试以安全模式重新执行。 </p>
-<h4 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo --debug</div></pre></td></tr></table></figure>
+<h4 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo --debug</span><br></pre></td></tr></table></figure>
 <p>在终端中显示调试信息并记录到 debug.log。当您碰到问题时，可以尝试用调试模式重新执行一次，并 提交调试信息到 GitHub。</p>
-<h4 id="简洁模式"><a href="#简洁模式" class="headerlink" title="简洁模式"></a>简洁模式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo --silent</div></pre></td></tr></table></figure>
+<h4 id="简洁模式"><a href="#简洁模式" class="headerlink" title="简洁模式"></a>简洁模式</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo --silent</span><br></pre></td></tr></table></figure>
 <p>隐藏终端信息。</p>
-<h4 id="自定义配置文件的路径"><a href="#自定义配置文件的路径" class="headerlink" title="自定义配置文件的路径"></a>自定义配置文件的路径</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo --config custom.yml</div></pre></td></tr></table></figure>
+<h4 id="自定义配置文件的路径"><a href="#自定义配置文件的路径" class="headerlink" title="自定义配置文件的路径"></a>自定义配置文件的路径</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo --config custom.yml</span><br></pre></td></tr></table></figure>
 <p>自定义配置文件的路径，执行后将不再使用 _config.yml。</p>
-<h4 id="显示草稿"><a href="#显示草稿" class="headerlink" title="显示草稿"></a>显示草稿</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo --draft</div></pre></td></tr></table></figure>
+<h4 id="显示草稿"><a href="#显示草稿" class="headerlink" title="显示草稿"></a>显示草稿</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo --draft</span><br></pre></td></tr></table></figure>
 <p>显示 source/_drafts 文件夹中的草稿文章。</p>
-<h4 id="自定义-CWD"><a href="#自定义-CWD" class="headerlink" title="自定义 CWD"></a>自定义 CWD</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo --cwd /path/to/cwd</div></pre></td></tr></table></figure>
+<h4 id="自定义-CWD"><a href="#自定义-CWD" class="headerlink" title="自定义 CWD"></a>自定义 CWD</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo --cwd /path/to/cwd</span><br></pre></td></tr></table></figure>
 <p>自定义当前工作目录（Current working directory）的路径。  </p>
 
       
@@ -584,6 +584,10 @@ $ hexo d
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/10/16/hexo配置信息/" rel="prev" title="hexo配置信息">
+                hexo配置信息 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -663,7 +667,7 @@ $ hexo d
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -674,7 +678,7 @@ $ hexo d
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -685,7 +689,7 @@ $ hexo d
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -792,7 +796,7 @@ $ hexo d
     
       <span class="post-meta-item-text">网站单词总数&#58;</span>
     
-    <span title="网站单词总数">5.9k</span>
+    <span title="网站单词总数">26.0k</span>
   
 </div>
 

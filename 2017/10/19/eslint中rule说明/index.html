@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+
+
+
+
+  <meta name="keywords" content="eslint,rule,config," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Eslint规则说明&amp;quot;no-alert&amp;quot;: 0,//禁止使用alert confirm prompt &amp;quot;no-array-constructor&amp;quot;: 2,//禁止使用数组构造器 &amp;quot;no-bitwise&amp;quot;: 0,/">
+<meta name="keywords" content="eslint,rule,config">
+<meta property="og:type" content="article">
+<meta property="og:title" content="eslint中的rule说明">
+<meta property="og:url" content="http://www.love2157dream.top/2017/10/19/eslint中rule说明/index.html">
+<meta property="og:site_name" content="Love2157dream">
+<meta property="og:description" content="Eslint规则说明&amp;quot;no-alert&amp;quot;: 0,//禁止使用alert confirm prompt &amp;quot;no-array-constructor&amp;quot;: 2,//禁止使用数组构造器 &amp;quot;no-bitwise&amp;quot;: 0,//禁止使用按位运算符 &amp;quot;no-caller&amp;quot;: 1,//禁止使用arguments.caller或argum">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-20T07:36:43.887Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="eslint中的rule说明">
+<meta name="twitter:description" content="Eslint规则说明&amp;quot;no-alert&amp;quot;: 0,//禁止使用alert confirm prompt &amp;quot;no-array-constructor&amp;quot;: 2,//禁止使用数组构造器 &amp;quot;no-bitwise&amp;quot;: 0,//禁止使用按位运算符 &amp;quot;no-caller&amp;quot;: 1,//禁止使用arguments.caller或argum">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":27,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.love2157dream.top/2017/10/19/eslint中rule说明/"/>
+
+
+
+
+
+  <title>eslint中的rule说明 | Love2157dream</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/love2157dream"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/github.png" alt="Fork me on GitHub" data-canonical-src="/images/github.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Love2157dream</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">遇见·懂得·珍惜</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.love2157dream.top/2017/10/19/eslint中rule说明/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁磊">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/liang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Love2157dream">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">eslint中的rule说明</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-19T15:33:56+08:00">
+                2017-10-19 15:33:56
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-10-20T15:36:43+08:00">
+                2017-10-20 15:36:43
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/eslint/" itemprop="url" rel="index">
+                    <span itemprop="name">eslint</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,479
+                </span>字
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>分钟
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Eslint规则说明"><a href="#Eslint规则说明" class="headerlink" title="Eslint规则说明"></a>Eslint规则说明</h1><pre><code>&quot;no-alert&quot;: 0,//禁止使用alert confirm prompt
+&quot;no-array-constructor&quot;: 2,//禁止使用数组构造器
+&quot;no-bitwise&quot;: 0,//禁止使用按位运算符
+&quot;no-caller&quot;: 1,//禁止使用arguments.caller或arguments.callee
+&quot;no-catch-shadow&quot;: 2,//禁止catch子句参数与外部作用域变量同名
+&quot;no-class-assign&quot;: 2,//禁止给类赋值
+&quot;no-cond-assign&quot;: 2,//禁止在条件表达式中使用赋值语句
+&quot;no-console&quot;: 2,//禁止使用console
+&quot;no-const-assign&quot;: 2,//禁止修改const声明的变量
+&quot;no-constant-condition&quot;: 2,//禁止在条件中使用常量表达式 if(true) if(1)
+&quot;no-continue&quot;: 0,//禁止使用continue
+&quot;no-control-regex&quot;: 2,//禁止在正则表达式中使用控制字符
+&quot;no-debugger&quot;: 2,//禁止使用debugger
+&quot;no-delete-var&quot;: 2,//不能对var声明的变量使用delete操作符
+&quot;no-div-regex&quot;: 1,//不能使用看起来像除法的正则表达式/=foo/
+&quot;no-dupe-keys&quot;: 2,//在创建对象字面量时不允许键重复 {a:1,a:1}
+&quot;no-dupe-args&quot;: 2,//函数参数不能重复
+&quot;no-duplicate-case&quot;: 2,//switch中的case标签不能重复
+&quot;no-else-return&quot;: 2,//如果if语句里面有return,后面不能跟else语句
+&quot;no-empty&quot;: 2,//块语句中的内容不能为空
+&quot;no-empty-character-class&quot;: 2,//正则表达式中的[]内容不能为空
+&quot;no-empty-label&quot;: 2,//禁止使用空label
+&quot;no-eq-null&quot;: 2,//禁止对null使用==或!=运算符
+&quot;no-eval&quot;: 1,//禁止使用eval
+&quot;no-ex-assign&quot;: 2,//禁止给catch语句中的异常参数赋值
+&quot;no-extend-native&quot;: 2,//禁止扩展native对象
+&quot;no-extra-bind&quot;: 2,//禁止不必要的函数绑定
+&quot;no-extra-boolean-cast&quot;: 2,//禁止不必要的bool转换
+&quot;no-extra-parens&quot;: 2,//禁止非必要的括号
+&quot;no-extra-semi&quot;: 2,//禁止多余的冒号
+&quot;no-fallthrough&quot;: 1,//禁止switch穿透
+&quot;no-floating-decimal&quot;: 2,//禁止省略浮点数中的0 .5 3.
+&quot;no-func-assign&quot;: 2,//禁止重复的函数声明
+&quot;no-implicit-coercion&quot;: 1,//禁止隐式转换
+&quot;no-implied-eval&quot;: 2,//禁止使用隐式eval
+&quot;no-inline-comments&quot;: 0,//禁止行内备注
+&quot;no-inner-declarations&quot;: [2, &quot;functions&quot;],//禁止在块语句中使用声明（变量或函数）
+&quot;no-invalid-regexp&quot;: 2,//禁止无效的正则表达式
+&quot;no-invalid-this&quot;: 2,//禁止无效的this，只能用在构造器，类，对象字面量
+&quot;no-irregular-whitespace&quot;: 2,//不能有不规则的空格
+&quot;no-iterator&quot;: 2,//禁止使用__iterator__ 属性
+&quot;no-label-var&quot;: 2,//label名不能与var声明的变量名相同
+&quot;no-labels&quot;: 2,//禁止标签声明
+&quot;no-lone-blocks&quot;: 2,//禁止不必要的嵌套块
+&quot;no-lonely-if&quot;: 2,//禁止else语句内只有if语句
+&quot;no-loop-func&quot;: 1,//禁止在循环中使用函数（如果没有引用外部变量不形成闭包就可以）
+&quot;no-mixed-requires&quot;: [0, false],//声明时不能混用声明类型
+&quot;no-mixed-spaces-and-tabs&quot;: [2, false],//禁止混用tab和空格
+&quot;linebreak-style&quot;: [0, &quot;windows&quot;],//换行风格
+&quot;no-multi-spaces&quot;: 1,//不能用多余的空格
+&quot;no-multi-str&quot;: 2,//字符串不能用\换行
+&quot;no-multiple-empty-lines&quot;: [1, {&quot;max&quot;: 2}],//空行最多不能超过2行
+&quot;no-native-reassign&quot;: 2,//不能重写native对象
+&quot;no-negated-in-lhs&quot;: 2,//in 操作符的左边不能有!
+&quot;no-nested-ternary&quot;: 0,//禁止使用嵌套的三目运算
+&quot;no-new&quot;: 1,//禁止在使用new构造一个实例后不赋值
+&quot;no-new-func&quot;: 1,//禁止使用new Function
+&quot;no-new-object&quot;: 2,//禁止使用new Object()
+&quot;no-new-require&quot;: 2,//禁止使用new require
+&quot;no-new-wrappers&quot;: 2,//禁止使用new创建包装实例，new String new Boolean new Number
+&quot;no-obj-calls&quot;: 2,//不能调用内置的全局对象，比如Math() JSON()
+&quot;no-octal&quot;: 2,//禁止使用八进制数字
+&quot;no-octal-escape&quot;: 2,//禁止使用八进制转义序列
+&quot;no-param-reassign&quot;: 2,//禁止给参数重新赋值
+&quot;no-path-concat&quot;: 0,//node中不能使用__dirname或__filename做路径拼接
+&quot;no-plusplus&quot;: 0,//禁止使用++，--
+&quot;no-process-env&quot;: 0,//禁止使用process.env
+&quot;no-process-exit&quot;: 0,//禁止使用process.exit()
+&quot;no-proto&quot;: 2,//禁止使用__proto__属性
+&quot;no-redeclare&quot;: 2,//禁止重复声明变量
+&quot;no-regex-spaces&quot;: 2,//禁止在正则表达式字面量中使用多个空格 /foo bar/
+&quot;no-restricted-modules&quot;: 0,//如果禁用了指定模块，使用就会报错
+&quot;no-return-assign&quot;: 1,//return 语句中不能有赋值表达式
+&quot;no-script-url&quot;: 0,//禁止使用javascript:void(0)
+&quot;no-self-compare&quot;: 2,//不能比较自身
+&quot;no-sequences&quot;: 0,//禁止使用逗号运算符
+&quot;no-shadow&quot;: 2,//外部作用域中的变量不能与它所包含的作用域中的变量或参数同名
+&quot;no-shadow-restricted-names&quot;: 2,//严格模式中规定的限制标识符不能作为声明时的变量名使用
+&quot;no-spaced-func&quot;: 2,//函数调用时 函数名与()之间不能有空格
+&quot;no-sparse-arrays&quot;: 2,//禁止稀疏数组， [1,,2]
+&quot;no-sync&quot;: 0,//nodejs 禁止同步方法
+&quot;no-ternary&quot;: 0,//禁止使用三目运算符
+&quot;no-trailing-spaces&quot;: 1,//一行结束后面不要有空格
+&quot;no-this-before-super&quot;: 0,//在调用super()之前不能使用this或super
+&quot;no-throw-literal&quot;: 2,//禁止抛出字面量错误 throw &quot;error&quot;;
+&quot;no-undef&quot;: 1,//不能有未定义的变量
+&quot;no-undef-init&quot;: 2,//变量初始化时不能直接给它赋值为undefined
+&quot;no-undefined&quot;: 2,//不能使用undefined
+&quot;no-unexpected-multiline&quot;: 2,//避免多行表达式
+&quot;no-underscore-dangle&quot;: 1,//标识符不能以_开头或结尾
+&quot;no-unneeded-ternary&quot;: 2,//禁止不必要的嵌套 var isYes = answer === 1 ? true : false;
+&quot;no-unreachable&quot;: 2,//不能有无法执行的代码
+&quot;no-unused-expressions&quot;: 2,//禁止无用的表达式
+&quot;no-unused-vars&quot;: [2, {&quot;vars&quot;: &quot;all&quot;, &quot;args&quot;: &quot;after-used&quot;}],//不能有声明后未被使用的变量或参数
+&quot;no-use-before-define&quot;: 2,//未定义前不能使用
+&quot;no-useless-call&quot;: 2,//禁止不必要的call和apply
+&quot;no-void&quot;: 2,//禁用void操作符
+&quot;no-var&quot;: 0,//禁用var，用let和const代替
+&quot;no-warning-comments&quot;: [1, { &quot;terms&quot;: [&quot;todo&quot;, &quot;fixme&quot;, &quot;xxx&quot;], &quot;location&quot;: &quot;start&quot; }],//不能有警告备注
+&quot;no-with&quot;: 2,//禁用with
+&quot;array-bracket-spacing&quot;: [2, &quot;never&quot;],//是否允许非空数组里面有多余的空格
+&quot;arrow-parens&quot;: 0,//箭头函数用小括号括起来
+&quot;arrow-spacing&quot;: 0,//=&gt;的前/后括号
+&quot;accessor-pairs&quot;: 0,//在对象中使用getter/setter
+&quot;block-scoped-var&quot;: 0,//块语句中使用var
+&quot;brace-style&quot;: [1, &quot;1tbs&quot;],//大括号风格
+&quot;callback-return&quot;: 1,//避免多次调用回调什么的
+&quot;camelcase&quot;: 2,//强制驼峰法命名
+&quot;comma-dangle&quot;: [2, &quot;never&quot;],//对象字面量项尾不能有逗号
+&quot;comma-spacing&quot;: 0,//逗号前后的空格
+&quot;comma-style&quot;: [2, &quot;last&quot;],//逗号风格，换行时在行首还是行尾
+&quot;complexity&quot;: [0, 11],//循环复杂度
+&quot;computed-property-spacing&quot;: [0, &quot;never&quot;],//是否允许计算后的键名什么的
+&quot;consistent-return&quot;: 0,//return 后面是否允许省略
+&quot;consistent-this&quot;: [2, &quot;that&quot;],//this别名
+&quot;constructor-super&quot;: 0,//非派生类不能调用super，派生类必须调用super
+&quot;curly&quot;: [2, &quot;all&quot;],//必须使用 if(){} 中的{}
+&quot;default-case&quot;: 2,//switch语句最后必须有default
+&quot;dot-location&quot;: 0,//对象访问符的位置，换行的时候在行首还是行尾
+&quot;dot-notation&quot;: [0, { &quot;allowKeywords&quot;: true }],//避免不必要的方括号
+&quot;eol-last&quot;: 0,//文件以单一的换行符结束
+&quot;eqeqeq&quot;: 2,//必须使用全等
+&quot;func-names&quot;: 0,//函数表达式必须有名字
+&quot;func-style&quot;: [0, &quot;declaration&quot;],//函数风格，规定只能使用函数声明/函数表达式
+&quot;generator-star-spacing&quot;: 0,//生成器函数*的前后空格
+&quot;guard-for-in&quot;: 0,//for in循环要用if语句过滤
+&quot;handle-callback-err&quot;: 0,//nodejs 处理错误
+&quot;id-length&quot;: 0,//变量名长度
+&quot;indent&quot;: [2, 4],//缩进风格
+&quot;init-declarations&quot;: 0,//声明时必须赋初值
+&quot;key-spacing&quot;: [0, { &quot;beforeColon&quot;: false, &quot;afterColon&quot;: true }],//对象字面量中冒号的前后空格
+&quot;lines-around-comment&quot;: 0,//行前/行后备注
+&quot;max-depth&quot;: [0, 4],//嵌套块深度
+&quot;max-len&quot;: [0, 80, 4],//字符串最大长度
+&quot;max-nested-callbacks&quot;: [0, 2],//回调嵌套深度
+&quot;max-params&quot;: [0, 3],//函数最多只能有3个参数
+&quot;max-statements&quot;: [0, 10],//函数内最多有几个声明
+&quot;new-cap&quot;: 2,//函数名首行大写必须使用new方式调用，首行小写必须用不带new方式调用
+&quot;new-parens&quot;: 2,//new时必须加小括号
+&quot;newline-after-var&quot;: 2,//变量声明后是否需要空一行
+&quot;object-curly-spacing&quot;: [0, &quot;never&quot;],//大括号内是否允许不必要的空格
+&quot;object-shorthand&quot;: 0,//强制对象字面量缩写语法
+&quot;one-var&quot;: 1,//连续声明
+&quot;operator-assignment&quot;: [0, &quot;always&quot;],//赋值运算符 += -=什么的
+&quot;operator-linebreak&quot;: [2, &quot;after&quot;],//换行时运算符在行尾还是行首
+&quot;padded-blocks&quot;: 0,//块语句内行首行尾是否要空行
+&quot;prefer-const&quot;: 0,//首选const
+&quot;prefer-spread&quot;: 0,//首选展开运算
+&quot;prefer-reflect&quot;: 0,//首选Reflect的方法
+&quot;quotes&quot;: [1, &quot;single&quot;],//引号类型 `` &quot;&quot; &apos;&apos;
+&quot;quote-props&quot;:[2, &quot;always&quot;],//对象字面量中的属性名是否强制双引号
+&quot;radix&quot;: 2,//parseInt必须指定第二个参数
+&quot;id-match&quot;: 0,//命名检测
+&quot;require-yield&quot;: 0,//生成器函数必须有yield
+&quot;semi&quot;: [2, &quot;always&quot;],//语句强制分号结尾
+&quot;semi-spacing&quot;: [0, {&quot;before&quot;: false, &quot;after&quot;: true}],//分号前后空格
+&quot;sort-vars&quot;: 0,//变量声明时排序
+&quot;space-after-keywords&quot;: [0, &quot;always&quot;],//关键字后面是否要空一格
+&quot;space-before-blocks&quot;: [0, &quot;always&quot;],//不以新行开始的块{前面要不要有空格
+&quot;space-before-function-paren&quot;: [0, &quot;always&quot;],//函数定义时括号前面要不要有空格
+&quot;space-in-parens&quot;: [0, &quot;never&quot;],//小括号里面要不要有空格
+&quot;space-infix-ops&quot;: 0,//中缀操作符周围要不要有空格
+&quot;space-return-throw-case&quot;: 2,//return throw case后面要不要加空格
+&quot;space-unary-ops&quot;: [0, { &quot;words&quot;: true, &quot;nonwords&quot;: false }],//一元运算符的前/后要不要加空格
+&quot;spaced-comment&quot;: 0,//注释风格要不要有空格什么的
+&quot;strict&quot;: 2,//使用严格模式
+&quot;use-isnan&quot;: 2,//禁止比较时使用NaN，只能用isNaN()
+&quot;valid-jsdoc&quot;: 0,//jsdoc规则
+&quot;valid-typeof&quot;: 2,//必须使用合法的typeof的值
+&quot;vars-on-top&quot;: 2,//var必须放在作用域顶部
+&quot;wrap-iife&quot;: [2, &quot;inside&quot;],//立即执行函数表达式的小括号风格
+&quot;wrap-regex&quot;: 0,//正则表达式字面量用小括号包起来
+&quot;yoda&quot;: [2, &quot;never&quot;]//禁止尤达条件
+</code></pre><h1 id="Vue在eslint规则下报错"><a href="#Vue在eslint规则下报错" class="headerlink" title="Vue在eslint规则下报错"></a>Vue在eslint规则下报错</h1><h4 id="object-curly-even-spacing-Expected-consistent-spacing-对象间的空格不一样"><a href="#object-curly-even-spacing-Expected-consistent-spacing-对象间的空格不一样" class="headerlink" title="object-curly-even-spacing  Expected consistent spacing (对象间的空格不一样)"></a>object-curly-even-spacing  Expected consistent spacing (对象间的空格不一样)</h4><p>错误的写法: { text: ‘学习JavaScript’}, //大括号结束前少空格</p>
+<h4 id="Missing-space-before-value-for-key-‘text’"><a href="#Missing-space-before-value-for-key-‘text’" class="headerlink" title="Missing space before value for key ‘text’"></a>Missing space before value for key ‘text’</h4><p>错误的写法: { text:’学习JavaScript’},</p>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">---------------------------本文结束<i class="fa fa-paw"></i>感谢您的阅读---------------------------</div>
+    
+</div>
+      
+    </div>
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.png" alt="梁磊 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>如果觉得我的文章对您有用，请随意赞赏。您的支持将鼓励我继续创作！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="梁磊 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="梁磊 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    梁磊
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.love2157dream.top/2017/10/19/eslint中rule说明/" title="eslint中的rule说明">http://www.love2157dream.top/2017/10/19/eslint中rule说明/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/eslint/" rel="tag"><i class="fa fa-tag"></i> eslint</a>
+          
+            <a href="/tags/rule/" rel="tag"><i class="fa fa-tag"></i> rule</a>
+          
+            <a href="/tags/config/" rel="tag"><i class="fa fa-tag"></i> config</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/16/hexo配置信息/" rel="next" title="hexo配置信息">
+                <i class="fa fa-chevron-left"></i> hexo配置信息
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/20/WebApp开发问题/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/liang.png"
+                alt="梁磊" />
+            
+              <p class="site-author-name" itemprop="name">梁磊</p>
+              <p class="site-description motion-element" itemprop="description">每天进步1%</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/love2157dream" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="2390779141@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/users/248557fda9ab/timeline" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-heartbeat"></i>简书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://juejin.im/user/57c77cfec4c971005419fd6a" target="_blank" title="掘金">
+                    
+                      <i class="fa fa-fw fa-spinner"></i>掘金</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://segmentfault.com/u/love2157dreams" target="_blank" title="segmentfault">
+                    
+                      <i class="fa fa-fw fa-free-code-camp"></i>segmentfault</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://stackoverflow.com/yourname" target="_blank" title="StackOverflow">
+                    
+                      <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Eslint规则说明"><span class="nav-number">1.</span> <span class="nav-text">Eslint规则说明</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue在eslint规则下报错"><span class="nav-number">2.</span> <span class="nav-text">Vue在eslint规则下报错</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#object-curly-even-spacing-Expected-consistent-spacing-对象间的空格不一样"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">object-curly-even-spacing  Expected consistent spacing (对象间的空格不一样)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Missing-space-before-value-for-key-‘text’"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">Missing space before value for key ‘text’</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">梁磊</span>
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">网站单词总数&#58;</span>
+    
+    <span title="网站单词总数">26.0k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+<div class="powered-by">
+  <i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_pv"></span>
+  </span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
