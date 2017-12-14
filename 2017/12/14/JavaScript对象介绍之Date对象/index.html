@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+
+
+
+
+  <meta name="keywords" content="JavaScript,Date对象," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Date对象方法 Date.UTC() 根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。 UTC时间与GMT(格林尼治时间)相同。  提示: 协调世界时，又称世界统一时间，世界标准时间，国际协调时间，简称UTC( Universal Coordinated Time ) 。  语法  Date.UTC">
+<meta name="keywords" content="JavaScript,Date对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript对象介绍之Date对象">
+<meta property="og:url" content="http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Date对象/index.html">
+<meta property="og:site_name" content="Love2157dream">
+<meta property="og:description" content="Date对象方法 Date.UTC() 根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。 UTC时间与GMT(格林尼治时间)相同。  提示: 协调世界时，又称世界统一时间，世界标准时间，国际协调时间，简称UTC( Universal Coordinated Time ) 。  语法  Date.UTC(year,month,day,hours,minutes,seconds,mi">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-14T09:12:16.362Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript对象介绍之Date对象">
+<meta name="twitter:description" content="Date对象方法 Date.UTC() 根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。 UTC时间与GMT(格林尼治时间)相同。  提示: 协调世界时，又称世界统一时间，世界标准时间，国际协调时间，简称UTC( Universal Coordinated Time ) 。  语法  Date.UTC(year,month,day,hours,minutes,seconds,mi">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":27,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Date对象/"/>
+
+
+
+
+
+  <title>JavaScript对象介绍之Date对象 | Love2157dream</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/love2157dream"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/github.png" alt="Fork me on GitHub" data-canonical-src="/images/github.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Love2157dream</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">遇见·懂得·珍惜</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Date对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁磊">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/liang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Love2157dream">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript对象介绍之Date对象</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T08:42:20+08:00">
+                2017-12-14 08:42:20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-14T17:12:16+08:00">
+                2017-12-14 17:12:16
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  7,840
+                </span>字
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  34
+                </span>分钟
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Date对象方法"><a href="#Date对象方法" class="headerlink" title="Date对象方法"></a>Date对象方法</h1><ul>
+<li><p><code>Date.UTC()</code> 根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。 UTC时间与GMT(格林尼治时间)相同。<br>  <strong>提示</strong>: 协调世界时，又称世界统一时间，世界标准时间，国际协调时间，简称UTC( Universal Coordinated Time ) 。</p>
+<blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<pre><code>Date.UTC(year,month,day,hours,minutes,seconds,millisec)
+</code></pre><blockquote>
+<p><strong>参数</strong></p>
+</blockquote>
+<pre><code>year    必需。表示年份的四位数字。
+month   必需。表示月份的整数，介于 0 ~ 11。
+day 必需。表示日期的整数，介于 1 ~ 31。
+hours   可选。表示小时的整数，介于 0 ~ 23。
+minutes 可选。表示分钟的整数，介于 0 ~ 59。
+seconds 可选。表示秒的整数，介于 0 ~ 59。
+ms  可选。表示毫秒的整数，介于 0 ~ 999。
+</code></pre><blockquote>
+<p><strong>返回值</strong></p>
+</blockquote>
+<pre><code>Number  返回指定的时间距 GMT 时间 1970 年 1 月 1 日午夜的毫秒数。
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Date</span>.UTC(<span class="number">2017</span>, <span class="number">12</span>, <span class="number">14</span>, <span class="number">10</span>, <span class="number">39</span>)); <span class="comment">// Sun Jan 14 2018 18:39:00 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.now()</code> 方法返回自1970年1月1日 00:00:00 UTC到当前时间的毫秒数。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// now()方法返回自1970年1月1日 00:00:00 UTC到当前时间的毫秒数，类型为Number。</span></span><br><span class="line"><span class="comment">// 因为 now() 是Date的一个静态函数，所以必须以 Date.now() 的形式来使用。</span></span><br><span class="line"><span class="comment">// 通过下面的代码来兼容那些不支持该方法的引</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="built_in">Date</span>.now) &#123;</span><br><span class="line">  <span class="built_in">Date</span>.now = <span class="function"><span class="keyword">function</span> <span class="title">now</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Date</span>.now(); <span class="comment">// 1513219457449</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.parse()</code> 方法解析一个表示某个日期的字符串，并返回从1970-1-1 00:00:00 UTC 到该日期对象（该日期对象的UTC时间）的毫秒数，<br>如果该字符串无法识别，或者一些情况下，包含了不合法的日期数值（如：2015-02-31），则返回值为NaN。</p>
+<blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<pre><code>显示调用： Date.parse(dateString)
+隐式调用： new Date(dateString)
+</code></pre><blockquote>
+<p><strong>参数</strong></p>
+</blockquote>
+<pre><code>dateString 一个符合 RFC2822 或 ISO 8601 日期格式的字符串（其他格式也许也支持，但结果可能与预期不符）。
+</code></pre><blockquote>
+<p><strong>返回值</strong></p>
+</blockquote>
+<pre><code>一个表示从1970-1-1 00:00:00 UTC到给定日期字符串所表示时间的毫秒数的数值。如果参数不能解析为一个有效的日期，则返回NaN。
+</code></pre><blockquote>
+<p><strong>描述</strong></p>
+</blockquote>
+<pre><code>parse 方法接受一个日期字符串（例如 &quot;Dec 25, 1995&quot;），并返回从1970-1-1 00:00:00 UTC到该日期字符串所表示日期的毫秒数。
+该方法在基于字符串值设置日期值时很有用，例如结合使用setTime() 方法和 Date() 构造函数。
+parse 方法接受一个表示时间的字符串，返回相应的时间值。该方法可以接受符合 RFC2822 / IETF 日期语法 (RFC2822 Section 3.3) 的字符串，
+如 &quot;Mon, 25 Dec 1995 13:30:00 GMT&quot;。该方法能够理解美国大陆时区的缩写，但是为了更通用，应该使用时区偏移，
+如 &quot;Mon, 25 Dec 1995 13:30:00 +0430&quot; （格林威治的子午线向东偏移4小时30分钟）。如果没有指定时区，默认使用本地时区。
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 包含无效值的非 ISO 格式字符串</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'23/25/2014'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getDate()</code> 根据本地时间，返回一个指定的日期对象为一个月中的第几天。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getDate()); <span class="comment">//  14</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getDay()</code> 方法根据本地时间，返回一个具体日期中一周的第几天，0 表示星期天。1 代表星期一，2 代表星期二， 依次类推。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getDay()); <span class="comment">//  4</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><code>Date.prototype.getFullYear()</code> 方法根据本地时间返回指定日期的年份。此方法替代 getYear() 。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getFullYear()); <span class="comment">//  2017</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getHours()</code> 方法根据本地时间，返回一个指定的日期对象的小时。返回一个0 到 23之间的整数值。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getHours()); <span class="comment">//  13</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getMilliseconds()</code>  方法，根据本地时间，返回一个指定的日期对象的毫秒数。返回一个0 到 999的整数。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getMilliseconds()); <span class="comment">//  603</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getMinutes()</code> 方法根据本地时间，返回一个指定的日期对象的分钟数。返回一个0 到 59的整数值。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getMinutes()); <span class="comment">//  23</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getMonth()</code> 根据本地时间，返回一个指定的日期对象的月份，为基于0的值（0表示一年中的第一月）。返回一个0 到 11的整数值： 0 代表一月份，1 代表二月分， 2 代表三月份，依次类</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getMonth()); <span class="comment">//  11</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getSeconds()</code>  方法根据本地时间，返回一个指定的日期对象的秒数。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getSeconds()); <span class="comment">//  28</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getTime()</code> 方法的返回值一个数值，表示从1970年1月1日0时0分0秒（UTC，即协调世界时）距离该日期对象所代表时间的毫秒数。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getSeconds()); <span class="comment">//  1513229008603</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getTimezoneOffset()</code> 方法返回协调世界时（UTC）相对于当前时区的时间差值，单位为分钟。<br>时区偏差（time-zone offset）表示协调世界时（UTC）与本地时区之间的差值，单位为分钟。<br>需要注意的是如果本地时区晚于协调世界时，则该差值为正值，如果早于协调世界时则为负值。<br>例如你所在时区为 UTC+10（澳大利亚东部标准时间），将会返回 -600。对于同一个时区，夏令时（Daylight Saving Time）将会改变这个值。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getTimezoneOffset()); <span class="comment">//  -480</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getUTCDate()</code> 方法以世界时为标准，返回一个指定的日期对象为一个月中的第几天.返回一个 1 到 31 的整数值</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getUTCDate()); <span class="comment">//  14</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getUTCDay()</code> 方法返回一个对应一星期中第几天的整数：0 代表星期天，1 代表星期一，2 代表星期二，依次类推。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getUTCDay()); <span class="comment">//  4</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><code>Date.prototype.getUTCFullYear()</code> 以世界时为标准，返回一个指定的日期对象的年份。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getUTCFullYear()); <span class="comment">//  2017</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getUTCHours()</code> 方法以世界时为标准，返回一个指定的日期对象的小时数。 返回一个 0 到 23 的整数。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getUTCHours()); <span class="comment">//  5</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getUTCMilliseconds()</code> 方法以世界时为标准，返回一个指定的日期对象的毫秒数。返回一个 0 到 999 的整数。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getUTCMilliseconds()); <span class="comment">//  603</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getUTCMinutes()</code> 方法以世界时为标准，返回一个指定的日期对象的分钟数。返回一个 0 到 59 的整数。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getUTCMinutes()); <span class="comment">//  23</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getUTCMonth()</code> 返回一个 0 到 11 的整数，分别对应以下月份：0 代表一月，1 代表二月，2 代表三月，依次类推。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getUTCMonth()); <span class="comment">//  11</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getUTCSeconds()</code> 方法以世界时为标准，返回一个指定的日期对象的秒数。返回一个 0 到 59 的整数。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// Thu Dec 14 2017 13:23:42 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.getUTCSeconds()); <span class="comment">//  28</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.getYear()</code> 方法返回指定的本地日期的年份。因为 getYear 不返回千禧年<code>[full years](&quot;year 2000 problem&quot;)</code>，所以这个方法不再被使用，现在替换为 <code>getFullYear</code> .</p>
+</li>
+<li><p><code>Date.prototype.setDate()</code> 方法根据本地时间来指定一个日期对象的天数。 一个整数，表示该月的第几天。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:04:59 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setDate(<span class="number">20</span>)); <span class="comment">//  1513753499372</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Wed Dec 20 2017 15:04:59 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setFullYear()</code> </p>
+<blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<pre><code>dateObj.setFullYear(yearValue[, monthValue[, dayValue]])
+</code></pre><blockquote>
+<p><strong>参数</strong></p>
+</blockquote>
+<pre><code>yearValue   指定年份的整数值，例如1995。
+monthValue  一个0到11之间的整数值，表示从一月到十二月。
+dayValue    一个1到31之间的整数值，表示月份中的第几天。如果你指定了 dayValue 参数，就必须同时指定 monthValue。
+</code></pre><blockquote>
+<p><strong>描述</strong></p>
+</blockquote>
+<pre><code>如果没有指定 monthValue 和dayValue 参数，将会使用 getMonth 和getDate 方法的返回值。
+如果有一个参数超出了合理的范围，setFullYear 方法会更新其他参数值，日期对象的日期值也会被相应更新。 
+例如，为 monthValue 指定 15， 则年份会加1，月份值会为3。
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); </span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:05:39 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setFullYear(<span class="number">2018</span>)); <span class="comment">//  1544771139176</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Fri Dec 14 2018 15:05:39 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setFullYear(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">3</span>)); <span class="comment">//  1525331139176</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu May 03 2018 15:05:39 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setHours()</code> 方法根据本地时间为一个日期对象设置小时数，返回从1970-01-01 00:00:00 UTC 到更新后的 日期 对象实例所表示时间的毫秒数。</p>
+<blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<pre><code>dateObj.setHours(hoursValue[, minutesValue[, secondsValue[, msValue]]])
+</code></pre><blockquote>
+<p>**JavaScript 1.3版本之前</p>
+</blockquote>
+<pre><code>dateObj.setHours(hoursValue)
+</code></pre><blockquote>
+<p><strong>参数</strong></p>
+</blockquote>
+<pre><code>hoursValue  一个 0 到 23 的整数，表示小时。
+minutesValue    一个 0 到 59 的整数，表示分钟。
+secondsValue    一个 0 到 59 的整数，表示秒数。如果指定了 secondsValue 参数，则必须同时指定 minutesValue 参数。
+msValue     一个 0 到 999 的数字，表示微秒数，如果指定了 msValue 参数，则必须同时指定 minutesValue 和 secondsValue 参数。
+</code></pre><blockquote>
+<p><strong>描述</strong></p>
+</blockquote>
+<pre><code>如果不指定 minutesValue，secondsValue 和 msValue 参数，则会使用getMinutes()，getSeconds() 和getMilliseconds() 方法的返回值。
+如果有一个参数超出了合理范围，setHours 会相应地更新日期对象中的日期信息。例如，如果为 secondsValue 指定了 100，则分钟会加 1，然后秒数使用 40。
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();  </span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:07:01 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setHours(<span class="number">22</span>)); <span class="comment">//  1513260421525</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 22:07:01 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setHours(<span class="number">22</span>, <span class="number">10</span>, <span class="number">12</span>)); <span class="comment">//  1513260612525</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 22:10:12 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setMilliseconds()</code> 方法会根据本地时间设置一个日期对象的豪秒数。一个 0 到 999 的数字，表示豪秒数。<br>如果指定的数字超出了合理范围，则日期对象的时间信息会被相应地更新。例如，如果指定了 1005，则秒数加 1，豪秒数为 5。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); </span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:07:44 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setMilliseconds(<span class="number">100</span>)); <span class="comment">//  1513235264100</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:07:44 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setMinutes()</code> 方法根据本地时间为一个日期对象设置分钟数。</p>
+<blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<pre><code>dateObj.setMinutes(minutesValue[, secondsValue[, msValue]])
+</code></pre><blockquote>
+<p><strong>JavaScript 1.3之前版本</strong></p>
+</blockquote>
+<pre><code>dateObj.setMinutes(minutesValue)
+</code></pre><blockquote>
+<p><strong>参数</strong></p>
+</blockquote>
+<pre><code>minutesValue    一个 0 到 59 的整数，表示分钟数。
+secondsValue    一个 0 到 59 的整数，表示秒数。如果指定了 secondsValue 参数，则必须同时指定 minutesValue 参数。
+msValue     一个 0 到 999 的数字，表示微秒数，如果指定了 msValue 参数，则必须同时指定 minutesValue 和secondsValue 参数。
+</code></pre><blockquote>
+<p><strong>描述</strong></p>
+</blockquote>
+<pre><code>如果没有指定 secondsValue 和 msValue 参数，就会使用 getSeconds() 和 getmilliseconds() 方法的返回值。
+如果有一个指定的参数超出了合理范围，setMinutes 会相应地更新日期对象中的时间信息。
+例如，为 secondsValue 指定 100，分钟数将会加 1，而秒数会为 40。
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); </span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:08:25 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setMinutes(<span class="number">32</span>)); <span class="comment">//  1513236745480</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:32:25 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setMinutes(<span class="number">32</span>, <span class="number">25</span>, <span class="number">125</span>)); <span class="comment">//  1513236745125</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:32:25 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setMonth()</code> 方法根据本地时间为一个设置年份的日期对象设置月份。</p>
+<blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<pre><code>dateObj.setMonth(monthValue[, dayValue])
+</code></pre><blockquote>
+<p><strong>JavaScript 1.3版本之前</strong></p>
+</blockquote>
+<pre><code>dateObj.setMonth(monthValue)
+</code></pre><blockquote>
+<p><strong>参数</strong></p>
+</blockquote>
+<pre><code>monthValue 介于 0 到 11 之间的整数（表示一月到十二月）。
+dayValue 从 1 到 31 之间的整数，表示月份中的第几天。
+返回值！ 基于 1 January 1970 00:00:00 UTC 开始计算的毫秒数
+</code></pre><blockquote>
+<p><strong>描述</strong></p>
+<pre><code>如果不指定 dayValue 参数，就会使用 getDate 方法的返回值。
+如果有一个指定的参数超出了合理范围，setMonth 会相应地更新日期对象中的日期信息。
+例如，为 monthValue 指定 15，则年份会加 1，月份将会使用 3。
+</code></pre></blockquote>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();  </span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:09:10 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setMonth(<span class="number">6</span>)); <span class="comment">//  1500016150361</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Fri Jul 14 2017 15:09:10 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setMonth(<span class="number">6</span>, <span class="number">25</span>)); <span class="comment">//  1500966550361</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Tue Jul 25 2017 15:09:10 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setSeconds()</code>  方法根据本地时间设置一个日期对象的秒数。</p>
+<blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<pre><code>dateObj.setSeconds(secondsValue[, msValue])
+</code></pre><blockquote>
+<p><strong>JavaScript 1.3之前版本</strong></p>
+</blockquote>
+<pre><code>dateObj.setSeconds(secondsValue)
+</code></pre><blockquote>
+<p><strong>参数</strong></p>
+<pre><code>secondsValue  一个 0 到 59 的整数。
+msValue  一个 0 到 999 的数字，表示微秒数。
+</code></pre><p><strong>描述</strong></p>
+</blockquote>
+<pre><code>如果没有指定 msValue 参数，就会使用 getMilliseconds() 方法的返回值。
+如果一个参数超出了合理范围， setSeconds 方法会相应地更新日期对象的时间信息。
+例如，为 secondsValue 指定 100，则日期对象的分钟数会相应地加 1，秒数将会使用 40。
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();  </span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:16:00 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setSeconds(<span class="number">30</span>)); <span class="comment">//  1513235790738</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:16:30 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setSeconds(<span class="number">40</span>, <span class="number">250</span>)); <span class="comment">//  1513235800250</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:16:40 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setTime()</code>  方法以一个表示从1970-1-1 00:00:00 UTC计时的毫秒数为来为 Date 对象设置时</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oldDay = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"July 1, 1990"</span>);</span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">d.setTime(oldDay.getTime()); <span class="comment">// 646761600000</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//  Sun Jul 01 1990 00:00:00 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setUTCDate(dayValue)</code> 方法就是根据全球时间设置特定date对象的日期。 dayValue是一个1-31的整形数字，用来指定日期。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//  Thu Dec 14 2017 15:22:05 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setUTCDate(<span class="number">24</span>)); <span class="comment">// 1514100125177</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//Sun Dec 24 2017 15:22:05 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setUTCFullYear()</code> 方法根据世界标准时间为一个具体日期设置年份。</p>
+<blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<pre><code>dateObj.setUTCFullYear(yearValue[, monthValue[, dayValue]])
+</code></pre><blockquote>
+<p><strong>参数</strong></p>
+</blockquote>
+<pre><code>yearValue 指定年份整数值，例如，1995
+monthValue 可选。指定一个0-11之间的整数值，代表从一月到十二月。
+dayValue 可选。指定一个1-31之间的整数值，代表月份中的第几天。如果你指定了dayValue参数，那么你必须指定monthValue参数。
+</code></pre><blockquote>
+<p><strong>描述</strong></p>
+</blockquote>
+<pre><code>如果你没有指定具体的monthValue和dayValue，将会使用 getUTCMonth 和getUTCDate 方法的返回值。
+如果你指定的参数超出了期待范围，setUTCFullYear()方法将会根据Date对象，更新其他参数和日期信息。
+例如，如果你将monthValue设定为15，年份会增加1，月份值则为为3。
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//  Thu Dec 14 2017 15:22:05 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setUTCFullYear(<span class="number">2018</span>)); <span class="comment">// 1544772206483</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Fri Dec 14 2018 15:23:26 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setUTCFullYear(<span class="number">2018</span>, <span class="number">4</span>, <span class="number">3</span>)); <span class="comment">// 1525332409427</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu May 03 2018 15:26:49 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setUTCHours()</code> 方法用于根据世界时 (UTC) 设置小时（0 - 23）。 该方法可用于设置分钟数，秒数以及毫米数。</p>
+<blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<pre><code>Date.setUTCHours(hour,min,sec,millisec)
+</code></pre><blockquote>
+<p><strong>参数</strong>  </p>
+</blockquote>
+<pre><code>hour    必需。要给 dateObject 设置的小时字段的值。
+        该参数是 0 ~ 23 之间的整数：
+        -1 为前一天的最后一个小时。
+        24 为明天的第一个小时
+
+min     可选。要给 date Object 设置的分钟字段的值。
+        该参数是 0 ~ 59 之间的整数：
+        -1 为前一小时的最后一分钟
+        60 为下一小时的第一分钟
+
+sec     可选。要给 date Object 设置的秒字段的值。
+        该参数是 0 ~ 59 之间的整数：
+        -1 为前一分钟的最后一秒
+        60 为下一分钟的第一秒
+millisec    可选。要给 date Object 设置的毫秒字段的值。
+
+        该参数是 1 ~ 999 之间的整数：
+        -1 为前一秒钟的最后一毫秒数
+        1000 为下一秒钟的第一毫秒数
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//  Thu Dec 14 2017 15:31:28 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setUTCHours(<span class="number">10</span>)); <span class="comment">// 1513247488164</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 18:31:28 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setUTCHours(<span class="number">10</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">403</span>)); <span class="comment">// 1513246394403</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 18:13:14 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setUTCMilliseconds()</code> 方法用于根据世界时 (UTC) 设置指定时间的毫秒。</p>
+<blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<pre><code>Date.setUTCMilliseconds(millisec)
+</code></pre><blockquote>
+<p><strong>参数</strong></p>
+</blockquote>
+<pre><code>millisec    必需。要给 dateObject 设置的毫秒字段的值。使用世界时表示。
+            该参数是 0 ~ 999 之间的整数：
+            -1 为上一秒钟的最后1毫秒
+            1000 为下一秒中的第一毫秒
+            1001 为下一秒中的第二毫秒
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//  Thu Dec 14 2017 15:34:57 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setUTCMilliseconds(<span class="number">520</span>)); <span class="comment">// 1513236897520</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:34:57 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setUTCMinutes()</code>  方法用于根据世界时 (UTC) 来设置指定时间的分钟</p>
+<blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<pre><code>Date.setUTCMinutes(min,sec,millisec)
+</code></pre><blockquote>
+<p><strong>参数</strong> </p>
+</blockquote>
+<pre><code>min 必需。要给 date Object 设置的分钟字段的值，用世界时表示。
+        该参数应该是 0 ~ 59 之间的整数：
+        -1 为上一分钟的最后一秒
+        60 为下一分钟的第一秒
+
+sec 可选。要给 dateObject 设置的秒字段的值。使用世界时表示。
+        该参数是 0 ~ 59 之间的整数：
+        -1 为上一分钟的最后一秒
+        60 为下一分钟的第一秒
+
+millisec    可选。要给 date Object 设置的毫秒字段的值。使用世界时表示。
+        该参数是 0 ~ 999 之间的整数：
+        -1 为上一秒钟的最后1毫秒
+        1000 为下一秒中的第一毫秒
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//  Thu Dec 14 2017 15:38:05 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setUTCMinutes(<span class="number">25</span>)); <span class="comment">// 1513236305568</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:25:05 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setUTCMinutes(<span class="number">25</span>, <span class="number">35</span>, <span class="number">140</span>)); <span class="comment">// 1513236335140</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:25:35 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setUTCMonth()</code> 方法用于根据世界时 (UTC) 来设置月份。</p>
+<blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<pre><code>Date.setUTCMonth(month,day)
+</code></pre><blockquote>
+<p><strong>参数</strong></p>
+</blockquote>
+<p>  month   必需。要给 dateObject 设置的月份字段的值，用世界时表示。</p>
+<pre><code>该参数是 0（一月） ~ 11（十二月） 之间的整数:
+-1 为上一年的最后一月。
+12 为下一年的第一个月。
+13 为下一年的第二月。
+</code></pre><p>  day 可选。月份中的某一天。</p>
+<pre><code>在 1 ~ 31 之间的整数，用作 date Object 的天字段，用世界时表示。
+    0 为上一个月的最后一小时。
+    -1 为上一个月最后一小时之前的小时时间。
+如果当月有31天：
+    32 为下一个月的第一天。
+如果当月有30天：
+    32 为下一个月的第二天。
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//  Thu Dec 14 2017 15:40:40 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setUTCMonth(<span class="number">4</span>)); <span class="comment">// 1494747640425</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Sun May 14 2017 15:40:40 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setUTCMonth(<span class="number">4</span>, <span class="number">3</span>)); <span class="comment">// 1493797240425</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Wed May 03 2017 15:40:40 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setUTCSeconds()</code> 方法用于根据世界时 (UTC) 设置指定时间的秒字段。  </p>
+<blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<pre><code>Date.setUTCSeconds(sec,millisec)
+</code></pre><blockquote>
+<p><strong>参数</strong></p>
+</blockquote>
+<pre><code>sec  必需。要给 dateObject 设置的秒字段的值。使用世界时表示。
+    该参数是 0 ~ 59 之间的整数：
+    -1 为上一分钟的最后一秒
+    60 为下一分钟的第一秒
+
+millisec  可选。要给 dateObject 设置的毫秒字段的值。使用世界时表示。
+        该参数是 0 ~ 999 之间的整数：
+        -1 为上一秒钟的最后1毫秒
+        1000 为下一秒中的第一毫秒
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//  Thu Dec 14 2017 15:43:00 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setUTCSeconds(<span class="number">35</span>)); <span class="comment">// 1513237415005</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:43:35 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.setUTCSeconds(<span class="number">35</span>, <span class="number">350</span>)); <span class="comment">// 1513237415350</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Thu Dec 14 2017 15:43:35 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.setYear()</code> <font color="red">已废弃</font>。请使用 setFullYear() 方法代替。</p>
+</li>
+<li><p><code>Date.prototype.toDateString()</code> 返回一个日期对象日期部分的字符串。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//  Thu Dec 14 2017 15:45:16 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.toDateString()); <span class="comment">//  Thu Dec 14 2017</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.toGMTString()</code> <font color="red">已废弃</font>。请使用 toUTCString() 方法代替。</p>
+</li>
+<li><p><code>Date.prototype.toISOString()</code> 方法返回一个 ISO（ISO 8601 Extended Format）格式的字符串： YYYY-MM-DDTHH:mm:ss.sssZ。时区总是UTC（协调世界时），加一个后缀“Z”标识。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//  Thu Dec 14 2017 15:47:02 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.toISOString()); <span class="comment">//  2017-12-14T07:47:02.427Z</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.toJSON()</code> 方法可以将 Date 对象转换为字符串，并格式化为 JSON 数据格式.JSON 数据用同样的格式就像x ISO-8601 标准: YYYY-MM-DDTHH:mm:ss.sssZ</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//  Thu Dec 14 2017 15:48:08 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.toJSON()); <span class="comment">//  2017-12-14T07:48:08.121Z</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.toLocaleDateString()</code> 根据本地时间把 Date 对象的<font color="red">日期部分</font>转换为字符串</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//  Thu Dec 14 2017 15:48:08 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.toLocaleDateString()); <span class="comment">//  2017/12/14</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.toLocaleFormat()</code> <font color="red">非标准</font>，chrome不支持</p>
+</li>
+<li><p><code>Date.prototype.toLocaleDateString()</code> 根据本地时间格式，把 Date 对象的日期部分转换为字符串，该字符串格式因不同语言而不同。新增的参数 locales 和 options 使程序能够指定使用哪种语言格式化规则，<br>允许定制该方法的表现（behavior）。在旧版本浏览器中， locales 和 options 参数被忽略，使用的语言环境和返回的字符串格式是各自独立实现的。</p>
+</li>
+<li><p><code>Date.prototype.toLocaleTimeString()</code> 根据本地时间格式，把 Date 对象的时间部分转换为字符串，该字符串格式因不同语言而不同。新增的参数 locales 和 options 使程序能够指定使用哪种语言格式化规则，<br>允许定制该方法的表现（behavior）。在旧版本浏览器中， locales 和 options 参数被忽略，使用的语言环境和返回的字符串格式是各自独立实现的。</p>
+</li>
+<li><p><code>Date.prototype.toLocaleString()</code> 据本地时间格式，把 Date 对象转换为字符串，该字符串格式因不同语言而不同。新增的参数 locales 和 options 使程序能够指定使用哪种语言格式化规则，<br>允许定制该方法的表现（behavior）。在旧版本浏览器中， locales 和 options 参数被忽略，使用的语言环境和返回的字符串格式是各自独立实现的。</p>
+<blockquote>
+<p><strong>语法</strong></p>
+</blockquote>
+<pre><code>dateObj .toLocaleString（[ locales [，options ]]）
+</code></pre><blockquote>
+<p><strong>参数</strong></p>
+</blockquote>
+<pre><code>检查浏览器兼容性部分以查看哪些浏览器支持locales和options参数，以及示例：检查localesoptions功能检测的支持和参数。
+
+locales
+    可选的。一个带有BCP 47语言标签的字符串或这种字符串的数组。有关参数的一般形式和解释locales，请参阅Intl页面。以下Unicode扩展键是被允许的：
+
+    nu
+        编号系统。可能的值包括：&quot;arab&quot;，&quot;arabext&quot;，&quot;bali&quot;，&quot;beng&quot;，&quot;deva&quot;，&quot;fullwide&quot;，&quot;gujr&quot;，&quot;guru&quot;，&quot;hanidec&quot;，&quot;khmr&quot;，
+        &quot;knda&quot;，&quot;laoo&quot;，&quot;latn&quot;，&quot;limb&quot;，&quot;mlym&quot;，&quot;mong&quot;，&quot;mymr&quot;，&quot;orya&quot;，&quot;tamldec&quot;，&quot;telu&quot;，&quot;thai&quot;，&quot;tibt&quot;。
+    ca
+        日历。可能的值包括：&quot;buddhist&quot;，&quot;chinese&quot;，&quot;coptic&quot;，&quot;ethioaa&quot;，&quot;ethiopic&quot;，&quot;gregory&quot;，&quot;hebrew&quot;，&quot;indian&quot;，&quot;islamic&quot;，
+        &quot;islamicc&quot;，&quot;iso8601&quot;，&quot;japanese&quot;，&quot;persian&quot;，&quot;roc&quot;。
+    hc
+        小时周期。可能的值包括：&quot;h11&quot;，&quot;h12&quot;，&quot;h23&quot;，&quot;h24&quot;。
+
+options
+    可选的。具有部分或全部以下属性的对象：
+
+    localeMatcher
+        要使用的语言环境匹配算法。可能的值是&quot;lookup&quot;和&quot;best fit&quot;; 默认是&quot;best fit&quot;。有关此选项的信息，请参阅Intl页面。
+    timeZone
+        要使用的时区。唯一的价值实现必须认识到的是&quot;UTC&quot;; 默认是运行时的默认时区。实现也可以识别的时区名称IANA时区数据库，
+        如&quot;Asia/Shanghai&quot;，&quot;Asia/Kolkata&quot;，&quot;America/New_York&quot;。
+    hour12
+        是否使用12小时的时间（而不是24小时的时间）。可能的值是true和false; 默认值是语言环境相关的。
+        如果两者都存在，此选项将覆盖hc语言标记和/或  hourCycle选项。
+    hourCycle
+        小时周期使用。可能的值是&quot;h11&quot;，&quot;h12&quot;，&quot;h23&quot;，或&quot;h24&quot;。hc如果两者都存在，则此选项将覆盖语言标记，
+        如果hour12指定了这两个选项，则该选项优先。
+    formatMatcher
+        要使用的格式匹配算法。可能的值是&quot;basic&quot;和&quot;best fit&quot;; 默认是&quot;best fit&quot;。有关使用此属性的信息，请参阅以下段落。
+
+        以下属性描述了格式化输出中使用的日期时间组件以及它们所需的表示。实现需要至少支持以下子集：
+            weekday，year，month，day，hour，minute，second
+            weekday，year，month，day
+            year，month，day
+            year， month
+            month， day
+            hour，minute，second
+            hour， minute
+
+        实现可以支持其他子集，并且将针对所有可用的子集表示组合来协商请求以找到最佳匹配。
+        两种算法可用于此协商并由formatMatcher属性选择：完全指定的&quot;basic&quot;算法和依赖于实现的&quot;best fit&quot;算法。
+
+            weekday
+                周日的表示。可能的值是&quot;narrow&quot;，&quot;short&quot;，&quot;long&quot;。
+            era
+                时代的代表。可能的值是&quot;narrow&quot;，&quot;short&quot;，&quot;long&quot;。
+            year
+                年的表示。可能的值是&quot;numeric&quot;，&quot;2-digit&quot;。
+            month
+                月份的表示。可能的值是&quot;numeric&quot;，&quot;2-digit&quot;，&quot;narrow&quot;，&quot;short&quot;，&quot;long&quot;。
+            day
+                一天的表示。可能的值是&quot;numeric&quot;，&quot;2-digit&quot;。
+            hour
+                小时的表示。可能的值是&quot;numeric&quot;，&quot;2-digit&quot;。
+            minute
+                分钟的表示。可能的值是&quot;numeric&quot;，&quot;2-digit&quot;。
+            second
+                第二个的表示。可能的值是&quot;numeric&quot;，&quot;2-digit&quot;。
+            timeZoneName
+                时区名称的表示。可能的值是&quot;short&quot;，&quot;long&quot;。
+
+        每个日期时组件属性的默认值是undefined，但如果weekday，year，month，day，hour，minute，second性质都是undefined，
+        然后year，month，day，hour，minute，和second被认为是&quot;numeric&quot;。
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 在没有指定语言环境的基本使用中，将返回默认语言环境中的格式化字符串和默认选项。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">//  Thu Dec 14 2017 16:52:31 GMT+0800 (中国标准时间)</span></span><br><span class="line"><span class="built_in">console</span>.log(d.toLocaleString()); <span class="comment">//  2017/12/14 下午4:07:23</span></span><br><span class="line"><span class="built_in">console</span>.log(d.toLocaleDateString()); <span class="comment">//  2017/12/14</span></span><br><span class="line"><span class="built_in">console</span>.log(d.toLocaleTimeString()); <span class="comment">//  下午4:52:31</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  检查支持locales和options参数</span></span><br><span class="line"><span class="comment"> *  在locales和options参数都无法在所有浏览器都支持呢。要检查一个实现是否已经支持它们，</span></span><br><span class="line"><span class="comment"> *  你可以使用非法语言标签被拒绝的RangeError例外情况：</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">toLocaleStringSupportsLocales</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleString(<span class="string">'i'</span>);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="keyword">return</span> e <span class="keyword">instanceof</span> <span class="built_in">RangeError</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 运用 locales</span></span><br><span class="line"><span class="comment"> * 本示例显示了本地化日期和时间格式中的一些变体。为了获得应用程序用户界面中使用的语言格式，</span></span><br><span class="line"><span class="comment"> * 请确保使用locales参数指定该语言（可能还有一些备用语言）：</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(date); <span class="comment">//  Thu Dec 14 2017 17:02:32 GMT+0800 (中国标准时间)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//假定本地时区是 America/Los_Angeles(美国时区)</span></span><br><span class="line"><span class="comment">//en-US(美利坚英语)使用 month-day-year 的顺序展示年月日</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">"en-US"</span>)); <span class="comment">// → 12/14/2017, 5:02:32 PM</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleDateString(<span class="string">"en-US"</span>)); <span class="comment">//  12/14/2017</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleTimeString(<span class="string">"en-US"</span>)); <span class="comment">//  5:02:32 PM</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// en-GB(不列颠英语)使用 day-month-year 顺序展示年月日</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">"en-GB"</span>)); <span class="comment">// → 14/12/2017, 17:02:32</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleDateString(<span class="string">"en-GB"</span>)); <span class="comment">//  14/12/2017</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleTimeString(<span class="string">"en-GB"</span>)); <span class="comment">//  17:02:32</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 韩语使用 year-month-day 顺序展示年月日</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">"ko-KR"</span>));  <span class="comment">// → 2017. 12. 14. 오후 5:02:32</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleDateString(<span class="string">"ko-KR"</span>)); <span class="comment">//  2017. 12. 14.</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleTimeString(<span class="string">"ko-KR"</span>)); <span class="comment">//  오후 5:02:32</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 大多数阿拉伯语国家的阿拉伯语使用阿拉伯数字</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">"ar-EG"</span>)); <span class="comment">// → ١٤‏/١٢‏/٢٠١٧ ٥:٠٢:٣٢ م</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleDateString(<span class="string">"ar-EG"</span>)); <span class="comment">//  ١٤‏/١٢‏/٢٠١٧</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleTimeString(<span class="string">"ar-EG"</span>)); <span class="comment">//  ٥:٠٢:٣٢ م</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//在日本，应用可能想要使用日本日历,</span></span><br><span class="line"><span class="comment">//2012 是平成24年（平成是是日本天皇明仁的年号,由1989年1月8日起开始计算直至现在）</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">"ja-JP-u-ca-japanese"</span>)); <span class="comment">// → 平成29/12/14 17:02:32</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleDateString(<span class="string">"ja-JP-u-ca-japanese"</span>)); <span class="comment">//  平成29/12/14</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleTimeString(<span class="string">"ja-JP-u-ca-japanese"</span>)); <span class="comment">//  17:02:32</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//当请求一个语言可能不支持，如巴厘(ban)，若有备用的语言印尼语(id)，</span></span><br><span class="line"><span class="comment">//那么将使用印尼语(id)</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString([<span class="string">"ban"</span>, <span class="string">"id"</span>])); <span class="comment">// → 14/12/2017 17.02.32</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleDateString([<span class="string">"ban"</span>, <span class="string">"id"</span>])); <span class="comment">// 14/12/2017</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleTimeString([<span class="string">"ban"</span>, <span class="string">"id"</span>])); <span class="comment">// 17.02.32</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 运用 options</span></span><br><span class="line"><span class="comment"> * 提供的结果toLocaleString()可以使用options参数自定义：</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(date); <span class="comment">// Thu Dec 14 2017 17:07:19 GMT+0800 (中国标准时间)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//请求参数(options)中包含参数星期(weekday)，并且该参数的值为长类型(long)</span></span><br><span class="line"><span class="keyword">var</span> options = &#123;<span class="attr">weekday</span>: <span class="string">"long"</span>, <span class="attr">year</span>: <span class="string">"numeric"</span>, <span class="attr">month</span>: <span class="string">"long"</span>, <span class="attr">day</span>: <span class="string">"numeric"</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">"de-DE"</span>, options)); <span class="comment">// → Donnerstag, 14. Dezember 2017</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleDateString(<span class="string">"de-DE"</span>, options)); <span class="comment">// Donnerstag, 14. Dezember 2017</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleTimeString(<span class="string">"de-DE"</span>, options)); <span class="comment">// Donnerstag, 14. Dezember 2017, 17:07:19</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//一个应用使用 世界标准时间(UTC),并且UTC使用短名字(short)展示</span></span><br><span class="line">options.timeZone = <span class="string">"UTC"</span>;</span><br><span class="line">options.timeZoneName = <span class="string">"short"</span>;<span class="comment">//若不写这一行那么仍然显示的是世界标准时间；但是GMT三个字母不会显示</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">"en-US"</span>, options)); <span class="comment">// → Thursday, December 14, 2017, UTC</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleDateString(<span class="string">"en-US"</span>, options)); <span class="comment">// Thursday, December 14, 2017, UTC</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleTimeString(<span class="string">"en-US"</span>, options)); <span class="comment">// Thursday, December 14, 2017, 9:07:19 AM UTC</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用24小时制</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">"en-US"</span>, &#123;<span class="attr">hour12</span>: <span class="literal">false</span>&#125;)); <span class="comment">// → 12/14/2017, 17:07:19</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleTimeString(<span class="string">"en-US"</span>, &#123;<span class="attr">hour12</span>: <span class="literal">false</span>&#125;)); <span class="comment">// 17:07:19</span></span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleDateString(<span class="string">"en-US"</span>, &#123;<span class="attr">hour12</span>: <span class="literal">false</span>&#125;)); <span class="comment">// 12/14/2017</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.toString()</code> 把 Date 对象转换为字符串。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(date.toString()); <span class="comment">//  Thu Dec 14 2017 17:10:00 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.toTimeString()</code> 把 Date 对象的时间部分转换为字符串。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(date.toTimeString()); <span class="comment">// 17:10:21 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p><code>Date.prototype.toUTCString()</code> 根据世界时，把 Date 对象转换为字符串。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(date.toUTCString()); <span class="comment">// Thu, 14 Dec 2017 09:11:06 GMT</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Date.prototype.valueOf()</code>  返回 Date 对象的原始值。date 的毫秒表示。返回值和方法 Date.getTime 返回的值相等,返回1970年1月1日午夜以来的毫秒数</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(date.valueOf()); <span class="comment">// 1513242700928</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">---------------------------本文结束<i class="fa fa-paw"></i>感谢您的阅读---------------------------</div>
+    
+</div>
+      
+    </div>
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.png" alt="梁磊 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>如果觉得我的文章对您有用，请随意赞赏。您的支持将鼓励我继续创作！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="梁磊 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="梁磊 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    梁磊
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Date对象/" title="JavaScript对象介绍之Date对象">http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Date对象/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+            <a href="/tags/Date对象/" rel="tag"><i class="fa fa-tag"></i> Date对象</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/14/JavaScript对象介绍之Array对象/" rel="next" title="JavaScript对象介绍之Array对象">
+                <i class="fa fa-chevron-left"></i> JavaScript对象介绍之Array对象
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/liang.png"
+                alt="梁磊" />
+            
+              <p class="site-author-name" itemprop="name">梁磊</p>
+              <p class="site-description motion-element" itemprop="description">每天进步1%</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/love2157dream" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="2390779141@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/users/248557fda9ab/timeline" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-heartbeat"></i>简书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://juejin.im/user/57c77cfec4c971005419fd6a" target="_blank" title="掘金">
+                    
+                      <i class="fa fa-fw fa-spinner"></i>掘金</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://segmentfault.com/u/love2157dreams" target="_blank" title="segmentfault">
+                    
+                      <i class="fa fa-fw fa-free-code-camp"></i>segmentfault</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://stackoverflow.com/yourname" target="_blank" title="StackOverflow">
+                    
+                      <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Date对象方法"><span class="nav-number">1.</span> <span class="nav-text">Date对象方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">梁磊</span>
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">网站单词总数&#58;</span>
+    
+    <span title="网站单词总数">60.3k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+<div class="powered-by">
+  <i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_pv"></span>
+  </span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

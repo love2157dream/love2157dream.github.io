@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+
+
+
+
+  <meta name="keywords" content="JavaScript,Number对象," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Number对象属性 Number.EPSILON 常量，它表示 1 与大于 1 的最小浮点数之间的差。 ES6支持   123456789101112131415161718192021222324252627// 对于 64 位浮点数来说，大于 1 的最小浮点数相当于二进制的1.00..001，小数点后面有连续 5">
+<meta name="keywords" content="JavaScript,Number对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript对象介绍之Number对象">
+<meta property="og:url" content="http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Number对象/index.html">
+<meta property="og:site_name" content="Love2157dream">
+<meta property="og:description" content="Number对象属性 Number.EPSILON 常量，它表示 1 与大于 1 的最小浮点数之间的差。 ES6支持   123456789101112131415161718192021222324252627// 对于 64 位浮点数来说，大于 1 的最小浮点数相当于二进制的1.00..001，小数点后面有连续 51 个零。这个值减去 1 之后，就等于 2 的-52 次方。console.lo">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-14T09:20:44.669Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript对象介绍之Number对象">
+<meta name="twitter:description" content="Number对象属性 Number.EPSILON 常量，它表示 1 与大于 1 的最小浮点数之间的差。 ES6支持   123456789101112131415161718192021222324252627// 对于 64 位浮点数来说，大于 1 的最小浮点数相当于二进制的1.00..001，小数点后面有连续 51 个零。这个值减去 1 之后，就等于 2 的-52 次方。console.lo">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":27,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Number对象/"/>
+
+
+
+
+
+  <title>JavaScript对象介绍之Number对象 | Love2157dream</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/love2157dream"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/github.png" alt="Fork me on GitHub" data-canonical-src="/images/github.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Love2157dream</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">遇见·懂得·珍惜</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Number对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁磊">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/liang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Love2157dream">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript对象介绍之Number对象</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T08:41:55+08:00">
+                2017-12-14 08:41:55
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-14T17:20:44+08:00">
+                2017-12-14 17:20:44
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,277
+                </span>字
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15
+                </span>分钟
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Number对象属性"><a href="#Number对象属性" class="headerlink" title="Number对象属性"></a>Number对象属性</h1><ul>
+<li><p><code>Number.EPSILON</code> 常量，它表示 1 与大于 1 的最小浮点数之间的差。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对于 64 位浮点数来说，大于 1 的最小浮点数相当于二进制的1.00..001，小数点后面有连续 51 个零。这个值减去 1 之后，就等于 2 的-52 次方。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.EPSILON === <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">-52</span>));  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.EPSILON);  <span class="comment">// 2.220446049250313e-16</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.EPSILON.toFixed(<span class="number">20</span>)); <span class="comment">// "0.00000000000000022204"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入一个这么小的量的目的，在于为浮点数计算，设置一个误差范围。我们知道浮点数计算是不精确的。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0.1</span> + <span class="number">0.2</span>);  <span class="comment">// 0.30000000000000004</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0.1</span> + <span class="number">0.2</span> - <span class="number">0.3</span>); <span class="comment">// 5.551115123125783e-17</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">5.551115123125783e-17</span>.toFixed(<span class="number">20</span>)); <span class="comment">// '0.00000000000000005551'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 同时上面代码解释了，为什么比较0.1 + 0.2与0.3得到的结果是false。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span>); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Number.EPSILON可以用来设置“能够接受的误差范围”。比如，误差范围设为 2 的-50 次方（即Number.EPSILON * Math.pow(2, 2)），</span></span><br><span class="line"><span class="comment">//即如果两个浮点数的差小于这个值，我们就认为这两个浮点数相等。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">5.551115123125783e-17</span> &lt; <span class="built_in">Number</span>.EPSILON * <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">2</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 因此，Number.EPSILON的实质是一个可以接受的最小误差范围。下面是误差检查函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">withinErrorMargin</span> (<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.abs(left - right) &lt; <span class="built_in">Number</span>.EPSILON * <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span> <span class="comment">// false</span></span><br><span class="line">withinErrorMargin(<span class="number">0.1</span> + <span class="number">0.2</span>, <span class="number">0.3</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="number">1.1</span> + <span class="number">1.3</span> === <span class="number">2.4</span> <span class="comment">// false</span></span><br><span class="line">withinErrorMargin(<span class="number">1.1</span> + <span class="number">1.3</span>, <span class="number">2.4</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.MAX_SAFE_INTEGER</code> 常量，返回安全整数的最大值  <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.MAX_SAFE_INTEGER); <span class="comment">// 9007199254740991</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.MAX_VALUE</code> 静态只读属性是 JavaScript 中可表示的最大的数。它的近似值为 1.7976931348623157 x 10308。大于MAX_VALUE的数表示无穷大。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.MAX_VALUE); <span class="comment">// 1.7976931348623157e+308</span></span><br><span class="line"><span class="comment">//MAX_VALUE 是 Javascript Number对象的静态属性，只能通过 Number.MAX_VALUE 调用。.</span></span><br><span class="line"><span class="comment">// 使用自定义的Number x（x.MAX_VALUE ） 将无法获取 MAX_VALUE 属性:</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(x.MAX_VALUE); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.MIN_SAFE_INTEGER</code> 常量，返回安全整数的最小值  <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.MIN_SAFE_INTEGER); <span class="comment">// -9007199254740991</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.MIN_VALUE</code> 静态只读属性是 JavaScript 中可表示的最小的数（接近 0 ，但不是负数）。它的近似值为 5 x 10-324。</p>
+<blockquote>
+<p>注意： 比 MIN_VALUE 属性小的数将用 0 表示。<br>注意： MIN_VALUE 是 JavaScript 最接近0的数,不是负值，负值属性为 MAX_NUMBER。</p>
+</blockquote>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.MIN_VALUE); <span class="comment">// 5e-324</span></span><br><span class="line"><span class="comment">//MIN_VALUE 是 Javascript Number对象的静态属性，只能通过 Number.MIN_VALUE 调用。.</span></span><br><span class="line"><span class="comment">// 使用自定义的Number x（x.MIN_VALUE ） 将无法获取 MIN_VALUE 属性:</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(x.MIN_VALUE); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.NEGATIVE_INFINITY</code> 静态只读属性表示负无穷大。小于 Number.MIN_VALUE 的值。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.NEGATIVE_INFINITY); <span class="comment">// -Infinity</span></span><br><span class="line"><span class="comment">// NEGATIVE_INFINITY 是 JavaScript Number 对象的静态变量。</span></span><br><span class="line"><span class="comment">// 调用方法为：Number.NEGATIVE_INFINITY.</span></span><br><span class="line"><span class="comment">// 使用 自定义 Number对象 x 调用该属性（x.NEGATIVE_INFINITY）将返回 undefined:</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(x.NEGATIVE_INFINITY); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.NaN</code> 静态只读属性是代表非数字值的特殊值。该属性用于指示某个值不是数字。</p>
+<blockquote>
+<p>可以把 Number 对象设置为该值，来指示其不是数字值。<br>提示： 请使用 isNaN() 全局函数来判断一个值是否是 NaN 值。</p>
+</blockquote>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.NaN); <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.POSITIVE_INFINITY</code> 静态只读属性表示正无穷大。小于 Number.MAX_VALUE  的值。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.POSITIVE_INFINITY); <span class="comment">// -Infinity</span></span><br><span class="line"><span class="comment">// POSITIVE_INFINITY 是 JavaScript Number 对象的静态变量。</span></span><br><span class="line"><span class="comment">// 调用方法为：Number.POSITIVE_INFINITY.</span></span><br><span class="line"><span class="comment">// 使用 自定义 Number对象 x 调用该属性（x.POSITIVE_INFINITY）将返回 undefined:</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(x.POSITIVE_INFINITY); <span class="comment">// undefined</span></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.prototype</code> 属性允许您向对象添加属性和方法。</p>
+<blockquote>
+<p>当构造一个属性, 所有的 Number 对象将被添加上该属性及值。<br>当构造一个方法时，所有的 Number 对象都会有这个方法。<br>注意： Number.prototype 不允许引用一个单独的 Number 对象，但是可以使用 Number() 对象。<br>注意：prototype 型是一个全局对象的构造函数，可用于所有的JavaScript对象</p>
+</blockquote>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个方法，给出了数字对象的属性，返回数字的一半价值：</span></span><br><span class="line"><span class="built_in">Number</span>.prototype.myMet = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.myProp = <span class="keyword">this</span>.valueOf()/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创造一个 Number 对象, 调用 myMet 方法:</span></span><br><span class="line"><span class="keyword">var</span> n = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">55</span>);</span><br><span class="line">n.myMet();</span><br><span class="line"><span class="keyword">var</span> x = n.myProp;</span><br><span class="line"><span class="built_in">console</span>.log(x); <span class="comment">// 27.5</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Number对象方法"><a href="#Number对象方法" class="headerlink" title="Number对象方法"></a>Number对象方法</h1><ul>
+<li><p><code>Number.isFinite(x)</code> 用来检查一个数值是否为有限的（finite）。<strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(<span class="number">15</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(<span class="number">0.8</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(<span class="literal">NaN</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite([])); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(&#123;&#125;)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(<span class="literal">undefined</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(<span class="literal">null</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(<span class="literal">Infinity</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(-<span class="literal">Infinity</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(<span class="string">'foo'</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(<span class="string">'15'</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(<span class="literal">true</span>)); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES5 可以通过下面的代码，部署Number.isFinite方法。</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">global</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> global_isFinite = global.isFinite;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(<span class="built_in">Number</span>, <span class="string">'isFinite'</span>, &#123;</span><br><span class="line">    value: <span class="function"><span class="keyword">function</span> <span class="title">isFinite</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">typeof</span> value === <span class="string">'number'</span> &amp;&amp; global_isFinite(value);</span><br><span class="line">    &#125;,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    writable: <span class="literal">true</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.isNaN()</code> 用来检查一个值是否为NaN。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="literal">NaN</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN([])); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(&#123;&#125;)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="literal">undefined</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="number">15</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="string">'15'</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="literal">true</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="number">9</span>/<span class="literal">NaN</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="string">'true'</span>/<span class="number">0</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="string">'true'</span>/<span class="string">'true'</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES5 通过下面的代码，部署Number.isNaN()。</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">global</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> global_isNaN = global.isNaN;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(<span class="built_in">Number</span>, <span class="string">'isNaN'</span>, &#123;</span><br><span class="line">    value: <span class="function"><span class="keyword">function</span> <span class="title">isNaN</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">typeof</span> value === <span class="string">'number'</span> &amp;&amp; global_isNaN(value);</span><br><span class="line">    &#125;,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    writable: <span class="literal">true</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>isNaN()和isFinite()</code>与传统的全局方法isFinite()和isNaN()的区别在于，传统方法先调用Number()将非数值的值转为数值，再进行判断。<br>而这两个新方法只对数值有效，Number.isFinite()对于非数值一律返回false, Number.isNaN()只有对于NaN才返回true，非NaN一律返回false。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isFinite</span>(<span class="number">25</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isFinite</span>(<span class="string">"25"</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(<span class="number">25</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isFinite(<span class="string">"25"</span>)); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="literal">NaN</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">isNaN</span>(<span class="string">"NaN"</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="literal">NaN</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="string">"NaN"</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isNaN(<span class="number">1</span>)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.isInteger()</code> 用来判断一个值是否为整数。需要注意的是，在 JavaScript 内部，整数和浮点数是同样的储存方法，所以 3 和 3.0 被视为同一个值。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="number">25</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="number">25.0</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="number">25.1</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="string">"15"</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isInteger(<span class="literal">true</span>)); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES5 可以通过下面的代码，部署Number.isInteger()。</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">global</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> floor = <span class="built_in">Math</span>.floor,</span><br><span class="line">    <span class="built_in">isFinite</span> = global.isFinite;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(<span class="built_in">Number</span>, <span class="string">'isInteger'</span>, &#123;</span><br><span class="line">    value: <span class="function"><span class="keyword">function</span> <span class="title">isInteger</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">typeof</span> value === <span class="string">'number'</span> &amp;&amp;</span><br><span class="line">        <span class="built_in">isFinite</span>(value) &amp;&amp;</span><br><span class="line">        floor(value) === value;</span><br><span class="line">    &#125;,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    writable: <span class="literal">true</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;)(<span class="keyword">this</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.isSafeInteger()</code> 用来判断一个整数是否落在这个范围之内。准确表示的整数范围在-2^53到2^53之间（不含两个端点），超过这个范围，无法精确表示这个值。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="string">'a'</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="literal">null</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="literal">NaN</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="literal">Infinity</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(-<span class="literal">Infinity</span>)); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="number">3</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="number">1.2</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="number">9007199254740990</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="number">9007199254740992</span>)); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="built_in">Number</span>.MIN_SAFE_INTEGER - <span class="number">1</span>));<span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="built_in">Number</span>.MIN_SAFE_INTEGER)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="built_in">Number</span>.MAX_SAFE_INTEGER)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="built_in">Number</span>.MAX_SAFE_INTEGER + <span class="number">1</span>)); <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个函数的实现很简单，就是跟安全整数的两个边界值比较一下。</span></span><br><span class="line"><span class="built_in">Number</span>.isSafeInteger = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (<span class="keyword">typeof</span> n === <span class="string">'number'</span> &amp;&amp;</span><br><span class="line">    <span class="built_in">Math</span>.round(n) === n &amp;&amp;</span><br><span class="line">    <span class="built_in">Number</span>.MIN_SAFE_INTEGER &lt;= n &amp;&amp;</span><br><span class="line">    n &lt;= <span class="built_in">Number</span>.MAX_SAFE_INTEGER);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实际使用这个函数时，需要注意。验证运算结果是否落在安全整数的范围内，不要只验证运算结果，而要同时验证参与运算的每个值。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="number">9007199254740993</span>)); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="number">990</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.isSafeInteger(<span class="number">9007199254740993</span> - <span class="number">990</span>)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">9007199254740993</span> - <span class="number">990</span>);</span><br><span class="line"><span class="comment">// 返回结果 9007199254740002</span></span><br><span class="line"><span class="comment">// 正确答案应该是 9007199254740003</span></span><br><span class="line"><span class="comment">// 上面代码中，9007199254740993不是一个安全整数，但是Number.isSafeInteger会返回结果，显示计算结果是安全的。这是因为，这个数超出了精度范围，导致在计算机内部，以9007199254740992的形式储存。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">9007199254740993</span> === <span class="number">9007199254740992</span>); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 所以，如果只验证运算结果是否为安全整数，很可能得到错误结果。下面的函数可以同时验证两个运算数和运算结果。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">trusty</span> (<span class="params">left, right, result</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (</span><br><span class="line">    <span class="built_in">Number</span>.isSafeInteger(left) &amp;&amp;</span><br><span class="line">    <span class="built_in">Number</span>.isSafeInteger(right) &amp;&amp;</span><br><span class="line">    <span class="built_in">Number</span>.isSafeInteger(result)</span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">RangeError</span>(<span class="string">'Operation cannot be trusted!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">trusty(<span class="number">9007199254740993</span>, <span class="number">990</span>, <span class="number">9007199254740993</span> - <span class="number">990</span>) <span class="comment">// RangeError: Operation cannot be trusted!</span></span><br><span class="line"></span><br><span class="line">trusty(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>) <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.parseInt()</code> 将字符串转换为整数并返回。ES6 将全局方法parseInt()移植到Number对象上面，行为完全保持不变。这样做的目的，是逐步减少全局性方法，使得语言逐步模块化。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5的写法</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseInt</span>(<span class="string">'12.34'</span>)); <span class="comment">// 12</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6的写法</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.parseInt(<span class="string">'12.34'</span>)); <span class="comment">// 12</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.parseFloat === <span class="built_in">parseFloat</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.parseFloat()</code> 将字符串转换为浮点数并返回。ES6 将全局方法parseFloat()移植到Number对象上面，行为完全保持不变。这样做的目的，是逐步减少全局性方法，使得语言逐步模块化。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5的写法</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">parseFloat</span>(<span class="string">'123.45#'</span>)); <span class="comment">// 123.45</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6的写法</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.parseFloat(<span class="string">'123.45#'</span>)); <span class="comment">// 123.45</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>.parseFloat === <span class="built_in">parseFloat</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.prototype.toExponential(x)</code> 方法把数字转换为指数计数法表示的字符串，并具有指定的小数位数。x是可选/Number类型,指定保留的小数位数。</p>
+<blockquote>
+<p>如果没有提供x参数，则toExponential()方法将返回足够多位数字，以便唯一指定该数字。<br>如果提供了参数，则参数x必须介于 [0, 20] 之间，否则将报错。<br>如果数字本身的小数位数大于参数x，则根据第x + 1位小数上的值进行四舍五入。</p>
+</blockquote>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">423.536</span>).toExponential()); <span class="comment">// 4.23536e+2</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">562345.12456</span>).toExponential(<span class="number">3</span>)); <span class="comment">// 5.623e+5</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">-2651.10</span>).toExponential(<span class="number">4</span>));  <span class="comment">// -2.6511e+3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">4564561.12457</span>).toExponential(<span class="number">0</span>)); <span class="comment">// 5e+6</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">231</span>).toExponential(<span class="number">5</span>)); <span class="comment">// 2.31000e+2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.prototype.toFixed(x)</code> 方法可把 Number 四舍五入为指定小数位数的数字。x值必需。</p>
+<blockquote>
+<p>如果没有提供x参数或其参数值为undefined，则x参数将默认为0。<br>如果提供了参数，则参数x必须介于 [0, 20] 之间，否则将报错。<br>如果数字本身的小数位数多于参数x，则根据第x + 1位小数上的值进行四舍五入。</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">423.536</span>).toFixed() ); <span class="comment">// 424</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">562345.12456</span>).toFixed(<span class="number">3</span>)); <span class="comment">// 562345.125</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">-2651.10</span>).toFixed(<span class="number">4</span>)); <span class="comment">// -2651.1000</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">4564561.12457</span>).toFixed(<span class="number">0</span>)); <span class="comment">// 4564561</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">231</span>).toFixed(<span class="number">5</span>)); <span class="comment">// 231.00000</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">1232</span>).toFixed(<span class="literal">undefined</span>)); <span class="comment">// 1232</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">123124234</span>).toFixed(<span class="number">50</span>)); <span class="comment">// Uncaught RangeError: toFixed() digits argument must be between 0 and 20</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>Number.prototype.toPrecision(x)</code> 方法可在对象的值超出指定位数时将其转换为指数计数法。x值可选/Number类型指定有效数字的位数。</p>
+<blockquote>
+<p>如果没有提供x参数或其值为undefined，则将转而调用toString()方法进行处理。而不是把数字转换成十进制的值。<br>如果提供了参数，则参数x必须介于 1 ~ 21 之间（且包括 1 和 21）即[1, 21] 之间，否则将报错。<br>如果数字的有效位数大于x，将会根据第x + 1位的有效数字进行四舍五入。</p>
+</blockquote>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用的是toString()方法</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">423.536</span>).toPrecision()); <span class="comment">// 423.536</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 由于整数部分有6位，要求只有3位有效数字，必须采用指数计数法才能表示。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">562345.12456</span>).toPrecision(<span class="number">3</span>)); <span class="comment">// 5.62e+5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 整数部分有4位，要求的有效数字为4位，采用定点表示法</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">-2651.10</span>).toPrecision(<span class="number">4</span>)); <span class="comment">// -2651</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 整数部分有7位，要求有效数字为1位，采用指数计数法</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">4564561.12457</span>).toPrecision(<span class="number">1</span>)); <span class="comment">// 5e+6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 整数部分有3位，要求有效数字为5位，采用定点表示法，并在小数部分填充两个0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">231</span>).toPrecision(<span class="number">5</span>)); <span class="comment">// 231.00</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.prototype.toString(x)</code> 把数字转换为字符串,x值可选/Number类型指定的基数(进制数)，默认为10。</p>
+<blockquote>
+<p>规定表示数字的基数，使 2 ~ 36 之间的整数。若省略该参数，则使用基数 10。但是要注意，如果该参数是 10 以外的其他值，则 ECMAScript 标准允许实现返回任意值。<br>2 - 数字以二进制值显示<br>8 - 数字以八进制值显示<br>16 - 数字以十六进制值显示</p>
+</blockquote>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 二进制</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">1024</span>).toString(<span class="number">2</span>)); <span class="comment">// 10000000000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认十进制</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">1024</span>).toString()); <span class="comment">// 1024</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 八进制</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">1024</span>).toString(<span class="number">8</span>)); <span class="comment">// 2000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 十六进制</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">1024</span>).toString(<span class="number">16</span>)); <span class="comment">// 400</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number.prototype.valueOf()</code> 返回一个 Number 对象的基本数字值。可以字符串返回数字。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(<span class="number">1024</span>).valueOf()); <span class="comment">// 1024</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">---------------------------本文结束<i class="fa fa-paw"></i>感谢您的阅读---------------------------</div>
+    
+</div>
+      
+    </div>
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.png" alt="梁磊 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>如果觉得我的文章对您有用，请随意赞赏。您的支持将鼓励我继续创作！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="梁磊 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="梁磊 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    梁磊
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Number对象/" title="JavaScript对象介绍之Number对象">http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Number对象/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+            <a href="/tags/Number对象/" rel="tag"><i class="fa fa-tag"></i> Number对象</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/14/JavaScript对象介绍之Math对象/" rel="next" title="JavaScript对象介绍之Math对象">
+                <i class="fa fa-chevron-left"></i> JavaScript对象介绍之Math对象
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/14/JavaScript对象介绍之String对象/" rel="prev" title="JavaScript对象介绍之String对象">
+                JavaScript对象介绍之String对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/liang.png"
+                alt="梁磊" />
+            
+              <p class="site-author-name" itemprop="name">梁磊</p>
+              <p class="site-description motion-element" itemprop="description">每天进步1%</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/love2157dream" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="2390779141@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/users/248557fda9ab/timeline" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-heartbeat"></i>简书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://juejin.im/user/57c77cfec4c971005419fd6a" target="_blank" title="掘金">
+                    
+                      <i class="fa fa-fw fa-spinner"></i>掘金</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://segmentfault.com/u/love2157dreams" target="_blank" title="segmentfault">
+                    
+                      <i class="fa fa-fw fa-free-code-camp"></i>segmentfault</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://stackoverflow.com/yourname" target="_blank" title="StackOverflow">
+                    
+                      <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Number对象属性"><span class="nav-number">1.</span> <span class="nav-text">Number对象属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Number对象方法"><span class="nav-number">2.</span> <span class="nav-text">Number对象方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">梁磊</span>
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">网站单词总数&#58;</span>
+    
+    <span title="网站单词总数">60.3k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+<div class="powered-by">
+  <i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_pv"></span>
+  </span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

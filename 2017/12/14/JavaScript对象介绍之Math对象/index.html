@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+
+
+
+
+  <meta name="keywords" content="JavaScript,Math对象," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Math对象属性 Math.E 返回算术常量 e，即自然对数的底数（约等于2.718）。   1console.log(Math.E); // 2.718281828459045  Math.LN2 返回 2 的自然对数（约等于0.693）。   1console.log(Math.LN2); // 0.6931471">
+<meta name="keywords" content="JavaScript,Math对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript对象介绍之Math对象">
+<meta property="og:url" content="http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Math对象/index.html">
+<meta property="og:site_name" content="Love2157dream">
+<meta property="og:description" content="Math对象属性 Math.E 返回算术常量 e，即自然对数的底数（约等于2.718）。   1console.log(Math.E); // 2.718281828459045  Math.LN2 返回 2 的自然对数（约等于0.693）。   1console.log(Math.LN2); // 0.6931471805599453  Math.LN10 返回 10 的自然对数（约等于2.30">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-14T09:17:34.078Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript对象介绍之Math对象">
+<meta name="twitter:description" content="Math对象属性 Math.E 返回算术常量 e，即自然对数的底数（约等于2.718）。   1console.log(Math.E); // 2.718281828459045  Math.LN2 返回 2 的自然对数（约等于0.693）。   1console.log(Math.LN2); // 0.6931471805599453  Math.LN10 返回 10 的自然对数（约等于2.30">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":27,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Math对象/"/>
+
+
+
+
+
+  <title>JavaScript对象介绍之Math对象 | Love2157dream</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/love2157dream"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/github.png" alt="Fork me on GitHub" data-canonical-src="/images/github.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Love2157dream</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">遇见·懂得·珍惜</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Math对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁磊">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/liang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Love2157dream">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript对象介绍之Math对象</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T08:41:45+08:00">
+                2017-12-14 08:41:45
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-14T17:17:34+08:00">
+                2017-12-14 17:17:34
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4,240
+                </span>字
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  21
+                </span>分钟
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Math对象属性"><a href="#Math对象属性" class="headerlink" title="Math对象属性"></a>Math对象属性</h1><ul>
+<li><p><code>Math.E</code> 返回算术常量 e，即自然对数的底数（约等于2.718）。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.E); <span class="comment">// 2.718281828459045</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.LN2</code> 返回 2 的自然对数（约等于0.693）。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.LN2); <span class="comment">// 0.6931471805599453</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.LN10</code> 返回 10 的自然对数（约等于2.302）。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.LN10); <span class="comment">// 2.302585092994046</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.LOG2E</code> 返回以 2 为底的 e 的对数（约等于 1.414）。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.LOG2E); <span class="comment">// 1.4426950408889634</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.LOG10E</code> 返回以 10 为底的 e 的对数（约等于0.434）。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.LOG10E); <span class="comment">// 0.4342944819032518</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.PI</code> 返回圆周率（约等于3.14159）。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.PI); <span class="comment">// 3.141592653589793</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.SQRT1_2</code> 返回返回 2 的平方根的倒数（约等于 0.707）。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.SQRT1_2); <span class="comment">// 0.7071067811865476</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.SQRT2</code> 返回 2 的平方根（约等于 1.414）。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.SQRT2); <span class="comment">// 1.4142135623730951</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Math对象方法"><a href="#Math对象方法" class="headerlink" title="Math对象方法"></a>Math对象方法</h1><ul>
+<li><p><code>Math.abs(x)</code> 方法返回一个数的绝对值，x必须是一个数值。如果x不是数字返回NaN，如果x为null返回0</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.abs(<span class="number">-7.25</span>));  <span class="comment">// 7.25</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.abs(<span class="string">'a'</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.abs(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.abs(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.abs(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.abs([])); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.acos(x)</code> 方法返回x的反余弦值，返回的值是0到PI之间的弧度值。如果x的值超过-1.0~1.0的范围，返回NaN。如果x值为-1，返回PI。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acos(<span class="number">0.5</span>)); <span class="comment">// 1.0471975511965979</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acos(<span class="number">-1.02</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acos(<span class="number">1.02</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acos(<span class="number">-1</span>)); <span class="comment">// 3.141592653589793</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acos(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acos(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acos(<span class="literal">null</span>)); <span class="comment">// 1.5707963267948966</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acos([])); <span class="comment">// 1.5707963267948966</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.acosh(x)</code> 返回x的反双曲余弦。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acosh(<span class="number">0.5</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acosh(<span class="number">-1.02</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acosh(<span class="number">1.02</span>)); <span class="comment">// 0.1996681577984152</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acosh(<span class="number">-1</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acosh(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acosh(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acosh(<span class="literal">null</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.acosh([])); <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.asin(x)</code> 方法返回一个数的反正弦值，返回的值是-P1/2~PI/2之间的弧度值。如果x超过了-1.0~1.0的范围，返回NaN。如果x值为1，返回PI/2。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asin(<span class="number">0.5</span>)); <span class="comment">// 0.5235987755982989</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asin(<span class="number">-1.02</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asin(<span class="number">1.02</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asin(<span class="number">1</span>)); <span class="comment">// 1.5707963267948966</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asin(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asin(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asin(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asin([])); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.asinh(x)</code> 返回x的反双曲正弦。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asinh(<span class="number">0.5</span>)); <span class="comment">// 0.48121182505960347</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asinh(<span class="number">-1.02</span>)); <span class="comment">// -0.8954452493897191</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asinh(<span class="number">1.02</span>)); <span class="comment">// 0.8954452493897191</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asinh(<span class="number">-1</span>)); <span class="comment">// -0.881373587019543</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asinh(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asinh(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asinh(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.asinh([])); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.atan(x)</code>  方法以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值。x必须是数值</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atan(<span class="number">0.5</span>)); <span class="comment">// 0.4636476090008061</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atan(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atan(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atan(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atan([])); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.atan2(y, x)</code> 返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">指定一个坐标（x，y），坐标值（<span class="number">4</span>,<span class="number">8</span>），使用 atan2() 方法计算坐标与X轴之间的角度的弧度 ，如下实例：</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atan2(<span class="number">8</span>,<span class="number">4</span>));  <span class="comment">// 1.1071487177940904</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.atanh(x)</code> 返回x的反双曲正切。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atanh(<span class="number">0.5</span>)); <span class="comment">// 0.5493061443340548</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atanh(<span class="number">-1.02</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atanh(<span class="number">1.02</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atanh(<span class="number">1</span>)); <span class="comment">// Infinity</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atanh(<span class="number">-1</span>)); <span class="comment">// -Infinity</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atanh(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atanh(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atanh(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.atanh([])); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.cbrt(x)</code> 方法用于计算一个数的立方根。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cbrt(<span class="number">-1</span>)); <span class="comment">// -1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cbrt(<span class="number">0</span>));  <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cbrt(<span class="number">1</span>));  <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cbrt(<span class="number">2</span>));  <span class="comment">// 1.2599210498948734</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于非数值，Math.cbrt方法内部也是先使用Number方法将其转为数值。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cbrt(<span class="string">'8'</span>)); <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cbrt(<span class="string">'hello'</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cbrt([])); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cbrt(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cbrt(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cbrt(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="comment">// 对于没有部署这个方法的环境，可以用下面的代码模拟。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.cbrt = <span class="built_in">Math</span>.cbrt || <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> y = <span class="built_in">Math</span>.pow(<span class="built_in">Math</span>.abs(x), <span class="number">1</span>/<span class="number">3</span>);</span><br><span class="line">  <span class="keyword">return</span> x &lt; <span class="number">0</span> ? -y : y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.ceil(x)</code> 方法执行的是向上取整计算，它返回的是大于或等于函数参数，并且与之最接近的整数。<br>。如果参数是一个整数，该值不变。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil(<span class="number">1.4</span>)); <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil(<span class="number">-1.4</span>)); <span class="comment">// -1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil(<span class="number">1.245</span>)); <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil(<span class="number">-1.245</span>)); <span class="comment">// -1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil(<span class="number">0.84</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.ceil([])); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.clz32(x)</code>  方法返回一个数的 32 位无符号整数形式有多少个前导 0。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="number">0</span>)); <span class="comment">// 32</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="number">1</span>)); <span class="comment">// 31</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="number">1000</span>)); <span class="comment">// 22</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="number">0b01000000000000000000000000000000</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="number">0b00100000000000000000000000000000</span>)); <span class="comment">// 2</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 上面代码中，0 的二进制形式全为 0，所以有 32 个前导 0；</span></span><br><span class="line"><span class="comment"> * 1 的二进制形式是0b1，只占 1 位，所以 32 位之中有 31 个前导 0；</span></span><br><span class="line"><span class="comment"> * 1000 的二进制形式是0b1111101000，一共有 10 位，所以 32 位之中有 22 个前导 0。</span></span><br><span class="line"><span class="comment"> * clz32这个函数名就来自”count leading zero bits in 32-bit binary representation of a number“</span></span><br><span class="line"><span class="comment"> *（计算一个数的 32 位二进制形式的前导 0 的个数）的缩写。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//左移运算符（&lt;&lt;）与Math.clz32方法直接相关。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="number">0</span>)); <span class="comment">// 32</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="number">1</span>)); <span class="comment">// 31</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="number">1</span> &lt;&lt; <span class="number">1</span>)); <span class="comment">// 30</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="number">1</span> &lt;&lt; <span class="number">2</span>)); <span class="comment">// 29</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="number">1</span> &lt;&lt; <span class="number">29</span>)); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于小数，Math.clz32方法只考虑整数部分。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="number">3.2</span>)); <span class="comment">// 30</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="number">3.9</span>)); <span class="comment">// 30</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于空值或其他类型的值，Math.clz32方法会将它们先转为数值，然后再计算。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32()); <span class="comment">// 32</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="literal">NaN</span>)); <span class="comment">// 32</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="literal">Infinity</span>)); <span class="comment">// 32</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="literal">null</span>)); <span class="comment">// 32</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="string">'foo'</span>)); <span class="comment">// 32</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32([])); <span class="comment">// 32</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(&#123;&#125;)); <span class="comment">// 32</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.clz32(<span class="literal">true</span>)); <span class="comment">// 31</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.cos(x)</code> 方法可返回一个数字的余弦值。 返回的是 -1.0 到 1.0 之间的数。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cos(<span class="number">3</span>)); <span class="comment">// -0.9899924966004454</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cos(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cos(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cos(<span class="literal">null</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cos([])); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.cosh(x)</code> 返回x的双曲余弦。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cosh(<span class="number">0.5</span>)); <span class="comment">// 1.1276259652063807</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cosh(<span class="number">-1.02</span>)); <span class="comment">// 1.5668948520686883</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cosh(<span class="number">1.02</span>)); <span class="comment">// 1.5668948520686883</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cosh(<span class="number">1</span>)); <span class="comment">// 1.5430806348152437</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cosh(<span class="number">-1</span>)); <span class="comment">// 1.5430806348152437</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cosh(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cosh(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cosh(<span class="literal">null</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.cosh([])); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.exp(x)</code> 方法可返回 e 的 x 次幂的值。 E 为自然底数 (近似值 2.7183)。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.exp(<span class="number">1</span>)); <span class="comment">// 2.718281828459045</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.exp(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.exp(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.exp(<span class="literal">null</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.exp([])); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.expm1(x)</code> 返回 ex - 1，即Math.exp(x) - 1。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.expm1(<span class="number">-1</span>)); <span class="comment">// -0.6321205588285577</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.expm1(<span class="number">0</span>));  <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.expm1(<span class="number">1</span>));  <span class="comment">// 1.718281828459045</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对于没有部署这个方法的环境，可以用下面的代码模拟。</span></span><br><span class="line"><span class="built_in">Math</span>.expm1 = <span class="built_in">Math</span>.expm1 || <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.exp(x) - <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.floor(x)</code> 方法返回小于等于x的最大整数。如果传递的参数是一个整数，该值不变。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(<span class="number">1.4</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(<span class="number">-1.4</span>)); <span class="comment">// -2</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(<span class="number">1.245</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(<span class="number">-1.245</span>)); <span class="comment">// -2</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(<span class="number">0.84</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.floor([])); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.fround(x)</code> 方法返回一个数的单精度浮点数形式。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.fround(<span class="number">0</span>));     <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.fround(<span class="number">1</span>));     <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.fround(<span class="number">1.337</span>)); <span class="comment">// 1.3370000123977661</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.fround(<span class="number">1.5</span>));   <span class="comment">// 1.5</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.fround(<span class="literal">NaN</span>));   <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.fround(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.fround(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.fround(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.fround([])); <span class="comment">// 0</span></span><br><span class="line"><span class="comment">//对于整数来说，Math.fround方法返回结果不会有任何不同，区别主要是那些无法用 64 个二进制位精确表示的小数。</span></span><br><span class="line"><span class="comment">//这时，Math.fround方法会返回最接近这个小数的单精度浮点数。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对于没有部署这个方法的环境，可以用下面的代码模拟。</span></span><br><span class="line"><span class="built_in">Math</span>.fround = <span class="built_in">Math</span>.fround || <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Float32Array</span>([x])[<span class="number">0</span>];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.hypot(x)</code> 方法返回所有参数x的平方和的平方根。<strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.hypot(<span class="number">3</span>, <span class="number">4</span>);        <span class="comment">// 5</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);     <span class="comment">// 7.0710678118654755</span></span><br><span class="line"><span class="built_in">Math</span>.hypot();            <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(<span class="literal">NaN</span>);         <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(<span class="number">3</span>, <span class="number">4</span>, <span class="string">'foo'</span>); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(<span class="number">3</span>, <span class="number">4</span>, <span class="string">'5'</span>);   <span class="comment">// 7.0710678118654755</span></span><br><span class="line"><span class="built_in">Math</span>.hypot(<span class="number">-3</span>);          <span class="comment">// 3</span></span><br><span class="line"><span class="comment">//上面代码中，3 的平方加上 4 的平方，等于 5 的平方。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果参数不是数值，Math.hypot方法会将其转为数值。只要有一个参数无法转为数值，就会返回 NaN。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.imul(x, y)</code> 方法返回两个数以 32 位带符号整数形式相乘的结果，返回的也是一个 32 位的带符号整数。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.imul(<span class="number">2</span>, <span class="number">4</span>));   <span class="comment">// 8</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.imul(<span class="number">-1</span>, <span class="number">8</span>));  <span class="comment">// -8</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.imul(<span class="number">-2</span>, <span class="number">-2</span>)); <span class="comment">// 4</span></span><br><span class="line"><span class="comment">// 如果只考虑最后 32 位，大多数情况下，Math.imul(a, b)与a * b的结果是相同的，</span></span><br><span class="line"><span class="comment">// 即该方法等同于(a * b)|0的效果（超过 32 位的部分溢出）。</span></span><br><span class="line"><span class="comment">// 之所以需要部署这个方法，是因为 JavaScript 有精度限制，超过 2 的 53 次方的值无法精确表示。</span></span><br><span class="line"><span class="comment">// 这就是说，对于那些很大的数的乘法，低位数值往往都是不精确的，Math.imul方法可以返回正确的低位数值。</span></span><br><span class="line"></span><br><span class="line">(<span class="number">0x7fffffff</span> * <span class="number">0x7fffffff</span>)|<span class="number">0</span> <span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 上面这个乘法算式，返回结果为 0。但是由于这两个二进制数的最低位都是 1，所以这个结果肯定是不正确的，</span></span><br><span class="line"><span class="comment">// 因为根据二进制乘法，计算结果的二进制最低位应该也是 1。这个错误就是因为它们的乘积超过了 2 的 53 次方，</span></span><br><span class="line"><span class="comment">// JavaScript 无法保存额外的精度，就把低位的值都变成了 0。Math.imul方法可以返回正确的值 1。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.imul(<span class="number">0x7fffffff</span>, <span class="number">0x7fffffff</span>)); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.log(x)</code> 方法可返回一个数的自然对数(基于E)。如果 x 为负数，返回 NaN。 如果 x 为0，返回 -Infinity 。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log(<span class="number">1.4</span>)); <span class="comment">// 0.33647223662121284</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log(<span class="number">-1.4</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log(<span class="number">0</span>)); <span class="comment">// -Infinity</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log(<span class="literal">null</span>)); <span class="comment">// -Infinity</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log([])); <span class="comment">// -Infinity</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.log1p(x)</code> 方法返回1 + x的自然对数，即Math.log(1 + x)。如果x小于-1，返回NaN。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log1p(<span class="number">1</span>));  <span class="comment">// 0.6931471805599453</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log1p(<span class="number">0</span>));  <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log1p(<span class="number">-1</span>)); <span class="comment">// -Infinity</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log1p(<span class="number">-2</span>)); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于没有部署这个方法的环境，可以用下面的代码模拟。</span></span><br><span class="line"><span class="built_in">Math</span>.log1p = <span class="built_in">Math</span>.log1p || <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.log(<span class="number">1</span> + x);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.log2(x)</code> 返回以 2 为底的x的对数。如果x小于 0，则返回 NaN。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log2(<span class="number">3</span>));       <span class="comment">// 1.584962500721156</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log2(<span class="number">2</span>));       <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log2(<span class="number">1</span>));       <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log2(<span class="number">0</span>));       <span class="comment">// -Infinity</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log2(<span class="number">-2</span>));      <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log2(<span class="number">1024</span>));    <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log2(<span class="number">1</span> &lt;&lt; <span class="number">29</span>)); <span class="comment">// 29</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于没有部署这个方法的环境，可以用下面的代码模拟。</span></span><br><span class="line"><span class="built_in">Math</span>.log2 = <span class="built_in">Math</span>.log2 || <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.log(x) / <span class="built_in">Math</span>.LN2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.log10(x)</code> 返回以 10 为底的x的对数。如果x小于 0，则返回 NaN。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log10(<span class="number">2</span>));      <span class="comment">// 0.3010299956639812</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log10(<span class="number">1</span>));      <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log10(<span class="number">0</span>));      <span class="comment">// -Infinity</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log10(<span class="number">-2</span>));     <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.log10(<span class="number">100000</span>)); <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于没有部署这个方法的环境，可以用下面的代码模拟。</span></span><br><span class="line"><span class="built_in">Math</span>.log10 = <span class="built_in">Math</span>.log10 || <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.log(x) / <span class="built_in">Math</span>.LN10;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.max(n1,n2,n3,...,nX)</code> 方法可返回参数中带有较大的值的那个数。如果没有参数，则返回 -Infinity。如果有某个参数为 NaN，或是不能转换成数字的非数字值，则返回 NaN。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.max(<span class="number">1.4</span>,<span class="number">-1.4</span>,<span class="number">0</span>,<span class="string">'111'</span>)); <span class="comment">// 111</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.max(<span class="number">1.4</span>,<span class="number">-1.4</span>,<span class="number">0</span>,&#123;&#125;,[],<span class="literal">undefined</span>,<span class="literal">null</span>,<span class="string">'a'</span>)); <span class="comment">// NaN </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.max()); <span class="comment">// -Infinity</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.min(n1,n2,n3,...,nX)</code> 方法可返回参数中带有较小的值的那个数。如果没有参数，则返回 Infinity。如果有某个参数为 NaN，或是不能转换成数字的非数字值，则返回 NaN。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.min(<span class="number">1.4</span>,<span class="number">-1.4</span>,<span class="number">0</span>,<span class="string">'111'</span>)); <span class="comment">// -1.4</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.min(<span class="number">1.4</span>,<span class="number">-1.4</span>,<span class="number">0</span>,&#123;&#125;,[],<span class="literal">undefined</span>,<span class="literal">null</span>,<span class="string">'a'</span>)); <span class="comment">// NaN </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.min()); <span class="comment">// Infinity</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.pow(x, y)</code> 方法返回 x 的 y 次幂。x必需底数且是数字。x必需幂数且是数字。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">返回 <span class="number">4</span> 的 <span class="number">3</span> 次幂 (<span class="number">4</span>*<span class="number">4</span>*<span class="number">4</span>):</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.pow(<span class="number">4</span>,<span class="number">3</span>)); <span class="comment">// 64</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.pow()); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.pow(&#123;&#125;, &#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.pow(<span class="literal">undefined</span>, <span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.pow(<span class="literal">null</span>, <span class="literal">null</span>)); <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.pow([],[])); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.random(x)</code> 方法可返回介于 0（包含） ~ 1（不包含） 之间的一个随机数。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.random()); <span class="comment">// 0.496602693723625</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.round(x)</code> 方法可把一个数字舍入为最接近的整数。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.round(<span class="number">2.5</span>)); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.round(<span class="number">-2.5</span>)); <span class="comment">// -2</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.round(<span class="number">2.45</span>)); <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.round(<span class="number">-2.45</span>)); <span class="comment">// -2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.sign(x)</code> 方法用来判断一个数到底是正数、负数、还是零。对于非数值，会先将其转换为数值。  <strong><font color="red">ES6支持</font></strong></p>
+<blockquote>
+<p>它会返回五种值。</p>
+</blockquote>
+<pre><code>参数为正数，返回+1；
+参数为负数，返回-1；
+参数为 0，返回0；
+参数为-0，返回-0;
+其他值，返回NaN。
+</code></pre>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign(<span class="number">-5</span>)); <span class="comment">// -1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign(<span class="number">5</span>)); <span class="comment">// +1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign(<span class="number">0</span>)); <span class="comment">// +0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign(<span class="number">-0</span>)); <span class="comment">// -0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign(<span class="literal">NaN</span>)); <span class="comment">// NaN </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果参数是非数值，会自动转为数值。对于那些无法转为数值的值，会返回NaN。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign(<span class="string">''</span>));  <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign(<span class="literal">true</span>));  <span class="comment">// +1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign(<span class="literal">false</span>));  <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign(<span class="literal">null</span>));  <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign(<span class="string">'9'</span>));  <span class="comment">// +1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign(<span class="string">'foo'</span>));  <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign());  <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign(<span class="literal">undefined</span>));  <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign([]));  <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sign(&#123;&#125;));  <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于没有部署这个方法的环境，可以用下面的代码模拟。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.sign = <span class="built_in">Math</span>.sign || <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  x = +x; <span class="comment">// convert to a number</span></span><br><span class="line">  <span class="keyword">if</span> (x === <span class="number">0</span> || <span class="built_in">isNaN</span>(x)) &#123;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> x &gt; <span class="number">0</span> ? <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.sin(x)</code> 方法返回参数 x 的正弦值。值在 -1.0 到 1.0 之间。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sin()); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sin(<span class="number">0</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sin(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sin(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sin(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sin([])); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.sinh(x)</code> 返回x的双曲正弦。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sinh(<span class="number">0.5</span>)); <span class="comment">// 0.5210953054937474</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sinh(<span class="number">-1.02</span>)); <span class="comment">// -1.2062999118956097</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sinh(<span class="number">1.02</span>)); <span class="comment">// 1.2062999118956097</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sinh(<span class="number">1</span>)); <span class="comment">// 1.1752011936438014</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sinh(<span class="number">-1</span>)); <span class="comment">// -1.1752011936438014</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sinh(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sinh(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sinh(<span class="literal">null</span>)); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sinh([])); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.sqrt(x)</code> 方法可返回一个数的平方根。x必须是大于等于 0 的数。如果 x 小于 0，则返回 NaN。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sqrt()); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sqrt(<span class="number">9</span>)); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sqrt(<span class="number">-9</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sqrt(<span class="number">0</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sqrt(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sqrt(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sqrt(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.sqrt([])); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.tan(x)</code> 方法可返回一个表示某个角的正切的数字。x是一个以弧度表示的角。将角度乘以 0.017453293 （2PI/360）即可转换为弧度。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tan()); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tan(<span class="number">9</span>)); <span class="comment">// -0.45231565944180985</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tan(<span class="number">-9</span>)); <span class="comment">// 0.45231565944180985</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tan(<span class="number">0</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tan(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tan(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tan(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tan([])); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.tanh(x)</code> 返回x的双曲正切。 <strong><font color="red">ES6支持</font></strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tanh(<span class="number">0.5</span>)); <span class="comment">// 0.46211715726000974</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tanh(<span class="number">-1.02</span>)); <span class="comment">// -0.7698665359089004</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tanh(<span class="number">1.02</span>)); <span class="comment">// 0.7698665359089004</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tanh(<span class="number">1</span>)); <span class="comment">// 0.7615941559557649</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tanh(<span class="number">-1</span>)); <span class="comment">// -0.7615941559557649</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tanh(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tanh(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tanh(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.tanh([])); <span class="comment">// 0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Math.trunc(x)</code> 方法用于去除一个数的小数部分，返回整数部分。 <strong><font color="red">ES6支持</font></strong>  </p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">4.1</span>)); <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">4.9</span>)); <span class="comment">// 4</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">-4.1</span>)); <span class="comment">// -4</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">-4.9</span>)); <span class="comment">// -4</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="number">-0.1234</span>)); <span class="comment">// -0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于非数值，Math.trunc内部使用Number方法将其先转为数值。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="string">'123.456'</span>)); <span class="comment">// 123</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="literal">true</span>)); <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="literal">false</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="literal">null</span>)); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc([])); <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于空值和无法截取整数的值，返回NaN。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="literal">NaN</span>));      <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="string">'foo'</span>));    <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc());         <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(<span class="literal">undefined</span>)); <span class="comment">// NaN</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.trunc(&#123;&#125;)); <span class="comment">// NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对于没有部署这个方法的环境，可以用下面的代码模拟。</span></span><br><span class="line"><span class="built_in">Math</span>.trunc = <span class="built_in">Math</span>.trunc || <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x &lt; <span class="number">0</span> ? <span class="built_in">Math</span>.ceil(x) : <span class="built_in">Math</span>.floor(x);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">---------------------------本文结束<i class="fa fa-paw"></i>感谢您的阅读---------------------------</div>
+    
+</div>
+      
+    </div>
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.png" alt="梁磊 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>如果觉得我的文章对您有用，请随意赞赏。您的支持将鼓励我继续创作！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="梁磊 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="梁磊 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    梁磊
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Math对象/" title="JavaScript对象介绍之Math对象">http://www.love2157dream.top/2017/12/14/JavaScript对象介绍之Math对象/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+            <a href="/tags/Math对象/" rel="tag"><i class="fa fa-tag"></i> Math对象</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/08/CmdMarkdown编辑器/" rel="next" title="CmdMarkdown编辑器">
+                <i class="fa fa-chevron-left"></i> CmdMarkdown编辑器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/14/JavaScript对象介绍之Number对象/" rel="prev" title="JavaScript对象介绍之Number对象">
+                JavaScript对象介绍之Number对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/liang.png"
+                alt="梁磊" />
+            
+              <p class="site-author-name" itemprop="name">梁磊</p>
+              <p class="site-description motion-element" itemprop="description">每天进步1%</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/love2157dream" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="2390779141@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/users/248557fda9ab/timeline" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-heartbeat"></i>简书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://juejin.im/user/57c77cfec4c971005419fd6a" target="_blank" title="掘金">
+                    
+                      <i class="fa fa-fw fa-spinner"></i>掘金</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://segmentfault.com/u/love2157dreams" target="_blank" title="segmentfault">
+                    
+                      <i class="fa fa-fw fa-free-code-camp"></i>segmentfault</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://stackoverflow.com/yourname" target="_blank" title="StackOverflow">
+                    
+                      <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Math对象属性"><span class="nav-number">1.</span> <span class="nav-text">Math对象属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Math对象方法"><span class="nav-number">2.</span> <span class="nav-text">Math对象方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">梁磊</span>
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">网站单词总数&#58;</span>
+    
+    <span title="网站单词总数">60.3k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+<div class="powered-by">
+  <i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_pv"></span>
+  </span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
