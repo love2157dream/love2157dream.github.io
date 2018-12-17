@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.3">
+
+
+
+
+
+
+  <meta name="keywords" content="ESLint配置," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ESLint 配置文件ESLint标是提供一个插件化的javascript代码检测工具。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162">
+<meta name="keywords" content="ESLint配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESLint规则配置">
+<meta property="og:url" content="http://www.love2157dream.top/2018/12/17/ESLint规则配置/index.html">
+<meta property="og:site_name" content="Love2157dream">
+<meta property="og:description" content="ESLint 配置文件ESLint标是提供一个插件化的javascript代码检测工具。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869&amp;#123;  // 环境定义了预定义的全局变量。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-17T08:38:53.846Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ESLint规则配置">
+<meta name="twitter:description" content="ESLint 配置文件ESLint标是提供一个插件化的javascript代码检测工具。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869&amp;#123;  // 环境定义了预定义的全局变量。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"always","offset":27,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.love2157dream.top/2018/12/17/ESLint规则配置/"/>
+
+
+
+
+
+  <title>ESLint规则配置 | Love2157dream</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/love2157dream"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/github.png" alt="Fork me on GitHub" data-canonical-src="/images/github.png"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Love2157dream</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">遇见·懂得·珍惜</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.love2157dream.top/2018/12/17/ESLint规则配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁磊">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/liang.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Love2157dream">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ESLint规则配置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-17T16:02:11+08:00">
+                2018-12-17 16:02:11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-12-17T16:38:53+08:00">
+                2018-12-17 16:38:53
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ESLint/" itemprop="url" rel="index">
+                    <span itemprop="name">ESLint</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5,418
+                </span>字
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  23
+                </span>分钟
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="ESLint-配置文件"><a href="#ESLint-配置文件" class="headerlink" title="ESLint 配置文件"></a><a href="https://cn.eslint.org" target="_blank" rel="noopener">ESLint 配置文件</a></h1><p>ESLint标是提供一个插件化的javascript代码检测工具。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// 环境定义了预定义的全局变量。</span></span><br><span class="line">  <span class="string">"env"</span>: &#123;</span><br><span class="line">    <span class="comment">// 一个环境定义了一组预定义的全局变量。可用的环境包括：</span></span><br><span class="line">    <span class="string">"browser"</span>: <span class="literal">true</span>,               <span class="comment">// 浏览器环境中的全局变量。</span></span><br><span class="line">    <span class="string">"node"</span>: <span class="literal">true</span>,                  <span class="comment">// Node.js 全局变量和 Node.js 作用域。</span></span><br><span class="line">    <span class="string">"commonjs"</span>: <span class="literal">true</span>,              <span class="comment">// CommonJS 全局变量和 CommonJS 作用域 (用于 "Browserify/WebPack 打包的只在浏览器中运行的代码)。</span></span><br><span class="line">    <span class="string">"shared-node-browser"</span>: <span class="literal">true</span>,   <span class="comment">// Node.js 和 Browser 通用全局变量。</span></span><br><span class="line">    <span class="string">"es6"</span>: <span class="literal">true</span>,                   <span class="comment">// 启用除了 modules 以外的所有 ECMAScript 6 特性（该选项会自动设置 "ecmaVersion 解析器选项为 6）。</span></span><br><span class="line">    <span class="string">"worker"</span>: <span class="literal">true</span>,                 <span class="comment">// Web Workers 全局变量。</span></span><br><span class="line">    <span class="string">"amd"</span>: <span class="literal">true</span>,                    <span class="comment">// 将 require() 和 define() 定义为像 amd 一样的全局变量。       </span></span><br><span class="line">    <span class="string">"mocha"</span>: <span class="literal">true</span>,                  <span class="comment">// 添加所有的 Mocha 测试全局变量。</span></span><br><span class="line">    <span class="string">"jasmine"</span>: <span class="literal">true</span>,                <span class="comment">// 添加所有的 Jasmine 版本 1.3 和 2.0 的测试全局变量。      </span></span><br><span class="line">    <span class="string">"jest"</span>: <span class="literal">true</span>,                   <span class="comment">// Jest 全局变量。</span></span><br><span class="line">    <span class="string">"phantomjs"</span>: <span class="literal">true</span>,              <span class="comment">// PhantomJS 全局变量。</span></span><br><span class="line">    <span class="string">"protractor"</span>: <span class="literal">true</span>,             <span class="comment">// Protractor 全局变量。</span></span><br><span class="line">    <span class="string">"qunit"</span>: <span class="literal">true</span>,                  <span class="comment">// QUnit 全局变量。</span></span><br><span class="line">    <span class="string">"jquery"</span>: <span class="literal">true</span>,                 <span class="comment">// jQuery 全局变量。</span></span><br><span class="line">    <span class="string">"prototypejs"</span>: <span class="literal">true</span>,            <span class="comment">// Prototype.js 全局变量。</span></span><br><span class="line">    <span class="string">"shelljs"</span>: <span class="literal">true</span>,                <span class="comment">// ShellJS 全局变量。</span></span><br><span class="line">    <span class="string">"meteor"</span>: <span class="literal">true</span>,                 <span class="comment">// Meteor 全局变量。</span></span><br><span class="line">    <span class="string">"mongo"</span>: <span class="literal">true</span>,                  <span class="comment">// MongoDB 全局变量。</span></span><br><span class="line">    <span class="string">"applescript"</span>: <span class="literal">true</span>,            <span class="comment">// AppleScript 全局变量。</span></span><br><span class="line">    <span class="string">"nashorn"</span>: <span class="literal">true</span>,                <span class="comment">// Java 8 Nashorn 全局变量。</span></span><br><span class="line">    <span class="string">"serviceworker"</span>: <span class="literal">true</span>,          <span class="comment">// Service Worker 全局变量。</span></span><br><span class="line">    <span class="string">"atomtest"</span>: <span class="literal">true</span>,               <span class="comment">// Atom 测试全局变量。</span></span><br><span class="line">    <span class="string">"embertest"</span>: <span class="literal">true</span>,              <span class="comment">// Ember 测试全局变量。</span></span><br><span class="line">    <span class="string">"webextensions"</span>: <span class="literal">true</span>,          <span class="comment">// WebExtensions 全局变量。</span></span><br><span class="line">    <span class="string">"greasemonkey"</span>: <span class="literal">true</span>,           <span class="comment">// GreaseMonkey 全局变量。</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// JavaScript 语言选项。默认情况下，ESLint 支持 ECMAScript 5 语法。你可以覆盖该设置，以启用对 ECMAScript 其它版本和 JSX 的支持。</span></span><br><span class="line">  <span class="comment">// 请注意，对 JSX 语法的支持不用于对 React 的支持。React 使用了一些特定的 ESLint 无法识别的 JSX 语法。如果你正在使用 React 并且想要 React 语义支持，我们推荐你使用 eslint-plugin-react。</span></span><br><span class="line">  <span class="comment">// 同样的，支持 ES6 语法并不意味着同时支持新的 ES6 全局变量或类型（比如 Set 等新类型）。使用 &#123; "parserOptions": &#123; "ecmaVersion": 6 &#125; &#125; 来启用 ES6 语法支持；要额外支持新的 ES6 全局变量，使用 &#123; "env":&#123; "es6": true &#125; &#125;(这个设置会同时自动启用 ES6 语法支持)。</span></span><br><span class="line">  <span class="string">"parserOptions"</span>: &#123;</span><br><span class="line">    <span class="string">"ecmaVersion"</span>: <span class="number">6</span>, <span class="comment">// ECMAScript 版本,默认设置为3，5（默认）， 你可以使用 6、7、8 或 9 来指定你想要使用的 ECMAScript 版本。你也可以用使用年份命名的版本号指定为 2015（同 6），2016（同 7），或 2017（同 8）或 2018（同 9）</span></span><br><span class="line">    <span class="string">"sourceType"</span>: <span class="string">"module"</span>, <span class="comment">//设置为 "script" (默认) 或 "module"（如果你的代码是 ECMAScript 模块)。</span></span><br><span class="line">    <span class="comment">//想使用的额外的语言特性:</span></span><br><span class="line">    <span class="string">"ecmaFeatures"</span>: &#123;</span><br><span class="line">      <span class="comment">// 允许在全局作用域下使用 return 语句</span></span><br><span class="line">      <span class="string">"globalReturn"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="comment">// 启用全局 strict mode (如果 ecmaVersion 是 5 或更高)</span></span><br><span class="line">      <span class="string">"impliedStrict"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="comment">// 启用 JSX</span></span><br><span class="line">      <span class="string">"jsx"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// ESLint 支持使用第三方插件。在使用插件之前，你必须使用 npm 安装它。</span></span><br><span class="line">  <span class="comment">// 在配置文件里配置插件时，可以使用 plugins 关键字来存放插件名字的列表。插件名称可以省略 eslint-plugin- 前缀。</span></span><br><span class="line">  <span class="string">"plugins"</span>: [</span><br><span class="line">    <span class="string">"react"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="comment">// 一个配置文件可以从基础配置中继承已启用的规则。 extends 属性值可以是：</span></span><br><span class="line">    <span class="comment">// 1. 在配置中指定的一个字符串</span></span><br><span class="line">    <span class="comment">// 2.字符串数组：每个配置继承它前面的配置</span></span><br><span class="line">    <span class="comment">// 组成：plugin:包名(省略了前缀，比如，react)/配置名称(比如 recommended)</span></span><br><span class="line">  <span class="string">"extends"</span>: [</span><br><span class="line">    <span class="string">"eslint:recommended"</span>, <span class="comment">// 核心规则</span></span><br><span class="line">    <span class="string">"plugin:react/recommended"</span></span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * "off" 或 0 - 关闭规则</span></span><br><span class="line"><span class="comment">    * "warn" 或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出),</span></span><br><span class="line"><span class="comment">    * "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出)</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">  <span class="string">"rules"</span>: &#123;</span><br><span class="line">    <span class="string">"no-set-state"</span>: <span class="string">"off"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="ESLint-配置规则介绍"><a href="#ESLint-配置规则介绍" class="headerlink" title="ESLint 配置规则介绍"></a>ESLint 配置规则介绍</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这些规则与 JavaScript 代码中可能的错误或逻辑错误有关(34项)：</span></span><br><span class="line"><span class="string">'for-direction'</span>: 2,                      // 强制 “<span class="keyword">for</span>” 循环中更新子句的计数器朝着正确的方向移动</span><br><span class="line"><span class="string">'getter-return'</span>: 2,                      // 强制 getter 函数中出现 <span class="built_in">return</span> 语句</span><br><span class="line"><span class="string">'no-await-in-loop'</span>: 2,                   // 禁止在循环中出现 await</span><br><span class="line"><span class="string">'no-compare-neg-zero'</span>: 2,                // 禁止与 -0 进行比较</span><br><span class="line"><span class="string">'no-cond-assign'</span>: 2,                     // 禁止条件表达式中出现赋值操作符</span><br><span class="line"><span class="string">'no-console'</span>: 2,                         // 禁用 console</span><br><span class="line"><span class="string">'no-constant-condition'</span>: 2,              // 禁止在条件中使用常量表达式</span><br><span class="line"><span class="string">'no-control-regex'</span>: 2,                   // 禁止在正则表达式中使用控制字符</span><br><span class="line"><span class="string">'no-debugger'</span>: 2,                        // 禁用 debugger</span><br><span class="line"><span class="string">'no-dupe-args'</span>: 2,                       // 禁止 <span class="keyword">function</span> 定义中出现重名参数</span><br><span class="line"><span class="string">'no-dupe-keys'</span>: 2,                       // 禁止对象字面量中出现重复的 key</span><br><span class="line"><span class="string">'no-duplicate-case'</span>: 2,                  // 禁止出现重复的 <span class="keyword">case</span> 标签</span><br><span class="line"><span class="string">'no-empty'</span>: 2,                           // 禁止出现空语句块</span><br><span class="line"><span class="string">'no-empty-character-class'</span>: 2,           // 禁止在正则表达式中使用空字符集</span><br><span class="line"><span class="string">'no-ex-assign'</span>: 2,                       // 禁止对 catch 子句的参数重新赋值</span><br><span class="line"><span class="string">'no-extra-boolean-cast'</span>: 2,              // 禁止不必要的布尔转换</span><br><span class="line"><span class="string">'no-extra-parens'</span>: 2,                    // 禁止不必要的括号</span><br><span class="line"><span class="string">'no-extra-semi'</span>: 2,                      // 禁止不必要的分号</span><br><span class="line"><span class="string">'no-func-assign'</span>: 2,                     // 禁止对 <span class="keyword">function</span> 声明重新赋值</span><br><span class="line"><span class="string">'no-inner-declarations'</span>: 2,              // 禁止在嵌套的块中出现变量声明或 <span class="keyword">function</span> 声明</span><br><span class="line"><span class="string">'no-invalid-regexp'</span>: 2,                  // 禁止 RegExp 构造函数中存在无效的正则表达式字符串</span><br><span class="line"><span class="string">'no-irregular-whitespace'</span>: 2,            // 禁止在字符串和注释之外不规则的空白</span><br><span class="line"><span class="string">'no-obj-calls'</span>: 2,                       // 禁止把全局对象作为函数调用</span><br><span class="line"><span class="string">'no-prototype-builtins'</span>: 2,              // 禁止直接调用 Object.prototypes 的内置属性</span><br><span class="line"><span class="string">'no-regex-spaces'</span>: 2,                    // 禁止正则表达式字面量中出现多个空格</span><br><span class="line"><span class="string">'no-sparse-arrays'</span>: 2,                   // 禁用稀疏数组</span><br><span class="line"><span class="string">'no-template-curly-in-string'</span>: 2,        // 禁止在常规字符串中出现模板字面量占位符语法</span><br><span class="line"><span class="string">'no-unexpected-multiline'</span>: 2,            // 禁止出现令人困惑的多行表达式</span><br><span class="line"><span class="string">'no-unreachable'</span>: 2,                     // 禁止在<span class="built_in">return</span>、throw、<span class="built_in">continue</span> 和 <span class="built_in">break</span> 语句之后出现不可达代码</span><br><span class="line"><span class="string">'no-unsafe-finally'</span>: 2,                  // 禁止在 finally 语句块中出现控制流语句</span><br><span class="line"><span class="string">'no-unsafe-negation'</span>: 2,                 // 禁止对关系运算符的左操作数使用否定操作符</span><br><span class="line"><span class="string">'use-isnan'</span>: 2,                          // 要求使用 isNaN() 检查 NaN</span><br><span class="line"><span class="string">'valid-jsdoc'</span>: 2,                        // 强制使用有效的 JSDoc 注释</span><br><span class="line"><span class="string">'valid-typeof'</span>: 2,                       // 强制 typeof 表达式与有效的字符串进行比较</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这些规则是关于最佳实践的，帮助你避免一些问题(70项):</span></span><br><span class="line"><span class="string">'accessor-pairs'</span>: 2,                     // 强制 getter 和 setter 在对象中成对出现</span><br><span class="line"><span class="string">'array-callback-return'</span>: 2,              // 强制数组方法的回调函数中有 <span class="built_in">return</span> 语句</span><br><span class="line"><span class="string">'block-scoped-var'</span>: 2,                   // 强制把变量的使用限制在其定义的作用域范围内</span><br><span class="line"><span class="string">'class-methods-use-this'</span>: 2,             // 强制类方法使用 this</span><br><span class="line"><span class="string">'complexity'</span>: 2,                         // 指定程序中允许的最大环路复杂度</span><br><span class="line"><span class="string">'consistent-return'</span>: 2,                  // 要求 <span class="built_in">return</span> 语句要么总是指定返回的值，要么不指定</span><br><span class="line"><span class="string">'curly'</span>: 2,                              // 强制所有控制语句使用一致的括号风格</span><br><span class="line"><span class="string">'default-case'</span>: 2,                       // 要求 switch 语句中有 default 分支</span><br><span class="line"><span class="string">'dot-location'</span>: 2,                       // 强制在点号之前和之后一致的换行</span><br><span class="line"><span class="string">'dot-notation'</span>: 2,                       // 强制尽可能地使用点号</span><br><span class="line"><span class="string">'eqeqeq'</span>: 2,                             // 要求使用 === 和 !==</span><br><span class="line"><span class="string">'guard-for-in'</span>: 2,                       // 要求 <span class="keyword">for</span>-in 循环中有一个 <span class="keyword">if</span> 语句</span><br><span class="line"><span class="string">'no-alert'</span>: 2,                           // 禁用 alert、confirm 和 prompt</span><br><span class="line"><span class="string">'no-caller'</span>: 2,                          // 禁用 arguments.caller 或 arguments.callee</span><br><span class="line"><span class="string">'no-case-declarations'</span>: 2,               // 不允许在 <span class="keyword">case</span> 子句中使用词法声明</span><br><span class="line"><span class="string">'no-div-regex'</span>: 2,                       // 禁止除法操作符显式的出现在正则表达式开始的位置</span><br><span class="line"><span class="string">'no-else-return'</span>: 2,                     // 禁止 <span class="keyword">if</span> 语句中 <span class="built_in">return</span> 语句之后有 <span class="keyword">else</span> 块</span><br><span class="line"><span class="string">'no-empty-function'</span>: 2,                  // 禁止出现空函数</span><br><span class="line"><span class="string">'no-empty-pattern'</span>: 2,                   // 禁止使用空解构模式</span><br><span class="line"><span class="string">'no-eq-null'</span>: 2,                         // 禁止在没有类型检查操作符的情况下与 null 进行比较</span><br><span class="line"><span class="string">'no-eval'</span>: 2,                            // 禁用 <span class="built_in">eval</span>()</span><br><span class="line"><span class="string">'no-extend-native'</span>: 2,                   // 禁止扩展原生类型</span><br><span class="line"><span class="string">'no-extra-bind'</span>: 2,                      // 禁止不必要的 .<span class="built_in">bind</span>() 调用</span><br><span class="line"><span class="string">'no-extra-label'</span>: 2,                     // 禁用不必要的标签</span><br><span class="line"><span class="string">'no-fallthrough'</span>: 2,                     // 禁止 <span class="keyword">case</span> 语句落空</span><br><span class="line"><span class="string">'no-floating-decimal'</span>: 2,                // 禁止数字字面量中使用前导和末尾小数点</span><br><span class="line"><span class="string">'no-global-assign'</span>: 2,                   // 禁止对原生对象或只读的全局对象进行赋值</span><br><span class="line"><span class="string">'no-implicit-coercion'</span>: 2,               // 禁止使用短符号进行类型转换</span><br><span class="line"><span class="string">'no-implicit-globals'</span>: 2,                // 禁止在全局范围内使用变量声明和 <span class="keyword">function</span> 声明</span><br><span class="line"><span class="string">'no-implied-eval'</span>: 2,                    // 禁止使用类似 <span class="built_in">eval</span>() 的方法</span><br><span class="line"><span class="string">'no-invalid-this'</span>: 2,                    // 禁止 this 关键字出现在类和类对象之外</span><br><span class="line"><span class="string">'no-iterator'</span>: 2,                        // 禁用 __iterator__ 属性</span><br><span class="line"><span class="string">'no-labels'</span>: 2,                          // 禁用标签语句</span><br><span class="line"><span class="string">'no-lone-blocks'</span>: 2,                     // 禁用不必要的嵌套块</span><br><span class="line"><span class="string">'no-loop-func'</span>: 2,                       // 禁止在循环中出现 <span class="keyword">function</span> 声明和表达式</span><br><span class="line"><span class="string">'no-magic-numbers'</span>: 2,                   // 禁用魔术数字</span><br><span class="line"><span class="string">'no-multi-spaces'</span>: 2,                    // 禁止使用多个空格</span><br><span class="line"><span class="string">'no-multi-str'</span>: 2,                       // 禁止使用多行字符串</span><br><span class="line"><span class="string">'no-new'</span>: 2,                             // 禁止使用 new 以避免产生副作用</span><br><span class="line"><span class="string">'no-new-func'</span>: 2,                        // 禁止对 Function 对象使用 new 操作符</span><br><span class="line"><span class="string">'no-new-wrappers'</span>: 2,                    // 禁止对 String，Number 和 Boolean 使用 new 操作符</span><br><span class="line"><span class="string">'no-octal'</span>: 2,                           // 禁用八进制字面量</span><br><span class="line"><span class="string">'no-octal-escape'</span>: 2,                    // 禁止在字符串中使用八进制转义序列</span><br><span class="line"><span class="string">'no-param-reassign'</span>: 2,                  // 禁止对 <span class="keyword">function</span> 的参数进行重新赋值</span><br><span class="line"><span class="string">'no-proto'</span>: 2,                           // 禁用 __proto__ 属性</span><br><span class="line"><span class="string">'no-redeclare'</span>: 2,                       // 禁止多次声明同一变量</span><br><span class="line"><span class="string">'no-restricted-properties'</span>: 2,           // 禁止使用对象的某些属性</span><br><span class="line"><span class="string">'no-return-assign'</span>: 2,                   // 禁止在 <span class="built_in">return</span> 语句中使用赋值语句</span><br><span class="line"><span class="string">'no-return-await'</span>: 2,                    // 禁用不必要的 <span class="built_in">return</span> await</span><br><span class="line"><span class="string">'no-script-url'</span>: 2,                      // 禁止使用 javascript: url</span><br><span class="line"><span class="string">'no-self-assign'</span>: 2,                     // 禁止自我赋值</span><br><span class="line"><span class="string">'no-self-compare'</span>: 2,                    // 禁止自身比较</span><br><span class="line"><span class="string">'no-sequences'</span>: 2,                       // 禁用逗号操作符</span><br><span class="line"><span class="string">'no-throw-literal'</span>: 2,                   // 禁止抛出异常字面量</span><br><span class="line"><span class="string">'no-unmodified-loop-condition'</span>: 2,       // 禁用一成不变的循环条件</span><br><span class="line"><span class="string">'no-unused-expressions'</span>: 2,              // 禁止出现未使用过的表达式</span><br><span class="line"><span class="string">'no-unused-labels'</span>: 2,                   // 禁用出现未使用过的标</span><br><span class="line"><span class="string">'no-useless-call'</span>: 2,                    // 禁止不必要的 .call() 和 .apply()</span><br><span class="line"><span class="string">'no-useless-concat'</span>: 2,                  // 禁止不必要的字符串字面量或模板字面量的连接</span><br><span class="line"><span class="string">'no-useless-escape'</span>: 2,                  // 禁用不必要的转义字符</span><br><span class="line"><span class="string">'no-useless-return'</span>: 2,                  // 禁止多余的 <span class="built_in">return</span> 语句</span><br><span class="line"><span class="string">'no-void'</span>: 2,                            // 禁用 void 操作符</span><br><span class="line"><span class="string">'no-warning-comments'</span>: 2,                // 禁止在注释中使用特定的警告术语</span><br><span class="line"><span class="string">'no-with'</span>: 2,                            // 禁用 with 语句</span><br><span class="line"><span class="string">'prefer-promise-reject-errors'</span>: 2,       // 要求使用 Error 对象作为 Promise 拒绝的原因</span><br><span class="line"><span class="string">'radix'</span>: 2,                              // 强制在parseInt()使用基数参数</span><br><span class="line"><span class="string">'require-await'</span>: 2,                      // 禁止使用不带 await 表达式的 async 函数</span><br><span class="line"><span class="string">'vars-on-top'</span>: 2,                        // 要求所有的 var 声明出现在它们所在的作用域顶部</span><br><span class="line"><span class="string">'wrap-iife'</span>: 2,                          // 要求 IIFE 使用括号括起来</span><br><span class="line"><span class="string">'yoda'</span>: 2,                               // 要求或禁止 “Yoda” 条件</span><br><span class="line"></span><br><span class="line"><span class="comment"># 该规则与使用严格模式和严格模式指令有关：</span></span><br><span class="line"><span class="string">'strict'</span>: 2,                             // 要求或禁止使用严格模式指令</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这些规则与变量声明有关(12项)：</span></span><br><span class="line"><span class="string">'init-declarations'</span>: 2,                  // 要求或禁止 var 声明中的初始化</span><br><span class="line"><span class="string">'no-catch-shadow'</span>: 2,                    // 禁止 catch 子句的参数与外层作用域中的变量同名</span><br><span class="line"><span class="string">'no-delete-var'</span>: 2,                      // 禁止删除变量</span><br><span class="line"><span class="string">'no-label-var'</span>: 2,                       // 不允许标签与变量同名</span><br><span class="line"><span class="string">'no-restricted-globals'</span>: 2,              // 禁用特定的全局变量</span><br><span class="line"><span class="string">'no-shadow'</span>: 2,                          // 禁止变量声明与外层作用域的变量同名</span><br><span class="line"><span class="string">'no-shadow-restricted-names'</span>: 2,         // 禁止将标识符定义为受限的名字</span><br><span class="line"><span class="string">'no-undef'</span>: 2,                           // 禁用未声明的变量，除非它们在 /*global */ 注释中被提到</span><br><span class="line"><span class="string">'no-undef-init'</span>: 2,                      // 禁止将变量初始化为 undefined</span><br><span class="line"><span class="string">'no-undefined'</span>: 2,                       // 禁止将 undefined 作为标识符</span><br><span class="line"><span class="string">'no-unused-vars'</span>: 2,                     // 禁止出现未使用过的变量</span><br><span class="line"><span class="string">'no-use-before-define'</span>: 2,               // 禁止在变量定义之前使用它们</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这些规则是关于Node.js 或 在浏览器中使用CommonJS 的(11项)：</span></span><br><span class="line"><span class="string">'callback-return'</span>: 2,                    // 强制数组方法的回调函数中有 <span class="built_in">return</span> 语句</span><br><span class="line"><span class="string">'global-require'</span>: 2,                     // 要求 require() 出现在顶层模块作用域中</span><br><span class="line"><span class="string">'handle-callback-err'</span>: 2,                // 要求回调函数中有容错处理</span><br><span class="line"><span class="string">'no-buffer-constructor'</span>: 2,              // 禁用 Buffer() 构造函数</span><br><span class="line"><span class="string">'no-mixed-requires'</span>: 2,                  // 禁止混合常规变量声明和 require 调用</span><br><span class="line"><span class="string">'no-new-require'</span>: 2,                     // 禁止调用 require 时使用 new 操作符</span><br><span class="line"><span class="string">'no-path-concat'</span>: 2,                     // 禁止对 __dirname 和 __filename 进行字符串连接</span><br><span class="line"><span class="string">'no-process-env'</span>: 2,                     // 禁用 process.env</span><br><span class="line"><span class="string">'no-process-exit'</span>: 2,                    // 禁用 process.exit()</span><br><span class="line"><span class="string">'no-restricted-modules'</span>: 2,              // 禁用通过 require 加载的指定模块</span><br><span class="line"><span class="string">'no-sync'</span>: 2,                            // 禁用同步方法</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这些规则是关于风格指南的，而且是非常主观的(90项)：</span></span><br><span class="line"><span class="string">'array-bracket-newline'</span>: 2,              // 在数组开括号后和闭括号前强制换行</span><br><span class="line"><span class="string">'array-bracket-spacing'</span>: 2,              // 强制数组方括号中使用一致的空格</span><br><span class="line"><span class="string">'array-element-newline'</span>: 2,              // 强制数组元素间出现换行</span><br><span class="line"><span class="string">'block-spacing'</span>: 2,                      // 禁止或强制在代码块中开括号前和闭括号后有空格</span><br><span class="line"><span class="string">'brace-style'</span>: 2,                        // 强制在代码块中使用一致的大括号风格</span><br><span class="line"><span class="string">'camelcase'</span>: 2,                          // 强制使用骆驼拼写法命名约定</span><br><span class="line"><span class="string">'capitalized-comments'</span>: 2,               // 强制或禁止对注释的第一个字母大写</span><br><span class="line"><span class="string">'comma-dangle'</span>: 2,                       // 要求或禁止末尾逗号</span><br><span class="line"><span class="string">'comma-spacing'</span>: 2,                      // 强制在逗号前后使用一致的空格</span><br><span class="line"><span class="string">'comma-style'</span>: 2,                        // 强制使用一致的逗号风格</span><br><span class="line"><span class="string">'computed-property-spacing'</span>: 2,          // 强制在计算的属性的方括号中使用一致的空格</span><br><span class="line"><span class="string">'consistent-this'</span>: 2,                    // 当获取当前执行环境的上下文时，强制使用一致的命名</span><br><span class="line"><span class="string">'eol-last'</span>: 2,                           // 要求或禁止文件末尾存在空行</span><br><span class="line"><span class="string">'func-call-spacing'</span>: 2,                  // 要求或禁止在函数标识符和其调用之间有空格</span><br><span class="line"><span class="string">'func-name-matching'</span>: 2,                 // 要求函数名与赋值给它们的变量名或属性名相匹配</span><br><span class="line"><span class="string">'func-names'</span>: 2,                         // 要求或禁止使用命名的 <span class="keyword">function</span> 表达式</span><br><span class="line"><span class="string">'func-style'</span>: 2,                         // 强制一致地使用 <span class="keyword">function</span> 声明或表达式</span><br><span class="line"><span class="string">'function-paren-newline'</span>: 2,             // 强制在函数括号内使用一致的换行</span><br><span class="line"><span class="string">'id-blacklist'</span>: 2,                       // 禁用指定的标识符</span><br><span class="line"><span class="string">'id-length'</span>: 2,                          // 强制标识符的最小和最大长度</span><br><span class="line"><span class="string">'id-match'</span>: 2,                           // 要求标识符匹配一个指定的正则表达式</span><br><span class="line"><span class="string">'implicit-arrow-linebreak'</span>: 2,           // 强制隐式返回的箭头函数体的位置</span><br><span class="line"><span class="string">'indent'</span>: 2,                             // 强制使用一致的缩进</span><br><span class="line"><span class="string">'jsx-quotes'</span>: 2,                         // 强制在 JSX 属性中一致地使用双引号或单引号</span><br><span class="line"><span class="string">'key-spacing'</span>: 2,                        // 强制在对象字面量的属性中键和值之间使用一致的间距</span><br><span class="line"><span class="string">'keyword-spacing'</span>: 2,                    // 强制在关键字前后使用一致的空格</span><br><span class="line"><span class="string">'line-comment-position'</span>: 2,              // 强制行注释的位置</span><br><span class="line"><span class="string">'linebreak-style'</span>: 2,                    // 强制使用一致的换行风格</span><br><span class="line"><span class="string">'lines-around-comment'</span>: 2,               // 要求在注释周围有空行</span><br><span class="line"><span class="string">'lines-between-class-members'</span>: 2,        // 要求或禁止类成员之间出现空行</span><br><span class="line"><span class="string">'max-depth'</span>: 2,                          // 强制可嵌套的块的最大深度</span><br><span class="line"><span class="string">'max-len'</span>: 2,                            // 强制一行的最大长度</span><br><span class="line"><span class="string">'max-lines'</span>: 2,                          // 强制最大行数</span><br><span class="line"><span class="string">'max-nested-callbacks'</span>: 2,               // 强制回调函数最大嵌套深度</span><br><span class="line"><span class="string">'max-params'</span>: 2,                         // 强制函数定义中最多允许的参数数量</span><br><span class="line"><span class="string">'max-statements'</span>: 2,                     // 强制函数块最多允许的的语句数量</span><br><span class="line"><span class="string">'max-statements-per-line'</span>: 2,            // 强制每一行中所允许的最大语句数量</span><br><span class="line"><span class="string">'multiline-comment-style'</span>: 2,            // 强制对多行注释使用特定风格</span><br><span class="line"><span class="string">'multiline-ternary'</span>: 2,                  // 要求或禁止在三元操作数中间换行</span><br><span class="line"><span class="string">'new-cap'</span>: 2,                            // 要求构造函数首字母大写</span><br><span class="line"><span class="string">'new-parens'</span>: 2,                         // 要求调用无参构造函数时有圆括号</span><br><span class="line"><span class="string">'newline-per-chained-call'</span>: 2,           // 要求方法链中每个调用都有一个换行符</span><br><span class="line"><span class="string">'no-array-constructor'</span>: 2,               // 禁用 Array 构造函数</span><br><span class="line"><span class="string">'no-bitwise'</span>: 2,                         // 禁用按位运算符</span><br><span class="line"><span class="string">'no-continue'</span>: 2,                        // 禁用 <span class="built_in">continue</span> 语句</span><br><span class="line"><span class="string">'no-inline-comments'</span>: 2,                 // 禁止在代码后使用内联注释</span><br><span class="line"><span class="string">'no-lonely-if'</span>: 2,                       // 禁止 <span class="keyword">if</span> 作为唯一的语句出现在 <span class="keyword">else</span> 语句中</span><br><span class="line"><span class="string">'no-mixed-operators'</span>: 2,                 // 禁止混合使用不同的操作符</span><br><span class="line"><span class="string">'no-mixed-spaces-and-tabs'</span>: 2,           // 禁止空格和 tab 的混合缩进</span><br><span class="line"><span class="string">'no-multi-assign'</span>: 2,                    // 禁止连续赋值</span><br><span class="line"><span class="string">'no-multiple-empty-lines'</span>: 2,            // 禁止出现多行空行</span><br><span class="line"><span class="string">'no-negated-condition'</span>: 2,               // 禁用否定的表达式</span><br><span class="line"><span class="string">'no-nested-ternary'</span>: 2,                  // 禁用嵌套的三元表达式</span><br><span class="line"><span class="string">'no-new-object'</span>: 2,                      // 禁用 Object 的构造函数</span><br><span class="line"><span class="string">'no-plusplus'</span>: 2,                        // 禁用一元操作符 ++ 和 --</span><br><span class="line"><span class="string">'no-restricted-syntax'</span>: 2,               // 禁用特定的语法</span><br><span class="line"><span class="string">'no-tabs'</span>: 2,                            // 禁用 tab</span><br><span class="line"><span class="string">'no-ternary'</span>: 2,                         // 禁用三元操作符</span><br><span class="line"><span class="string">'no-trailing-spaces'</span>: 2,                 // 禁用行尾空格</span><br><span class="line"><span class="string">'no-underscore-dangle'</span>: 2,               // 禁止标识符中有悬空下划线</span><br><span class="line"><span class="string">'no-unneeded-ternary'</span>: 2,                // 禁止可以在有更简单的可替代的表达式时使用三元操作符</span><br><span class="line"><span class="string">'no-whitespace-before-property'</span>: 2,      // 禁止属性前有空白</span><br><span class="line"><span class="string">'nonblock-statement-body-position'</span>: 2,   // 强制单个语句的位置</span><br><span class="line"><span class="string">'object-curly-newline'</span>: 2,               // 强制大括号内换行符的一致性</span><br><span class="line"><span class="string">'object-curly-spacing'</span>: 2,               // 强制在大括号中使用一致的空格</span><br><span class="line"><span class="string">'object-property-newline'</span>: 2,            // 强制将对象的属性放在不同的行上</span><br><span class="line"><span class="string">'one-var'</span>: 2,                            // 强制函数中的变量要么一起声明要么分开声明</span><br><span class="line"><span class="string">'one-var-declaration-per-line'</span>: 2,       // 要求或禁止在变量声明周围换行</span><br><span class="line"><span class="string">'operator-assignment'</span>: 2,                // 要求或禁止在可能的情况下使用简化的赋值操作符</span><br><span class="line"><span class="string">'operator-linebreak'</span>: 2,                 // 强制操作符使用一致的换行符</span><br><span class="line"><span class="string">'padded-blocks'</span>: 2,                      // 要求或禁止块内填充</span><br><span class="line"><span class="string">'padding-line-between-statements'</span>: 2,    // 要求或禁止在语句间填充空行</span><br><span class="line"><span class="string">'quote-props'</span>: 2,                        // 要求对象字面量属性名称用引号括起来</span><br><span class="line"><span class="string">'quotes'</span>: 2,                             // 强制使用一致的反勾号、双引号或单引号</span><br><span class="line"><span class="string">'require-jsdoc'</span>: 2,                      // 要求使用 JSDoc 注释</span><br><span class="line"><span class="string">'semi'</span>: 2,                               // 要求或禁止使用分号代替 ASI</span><br><span class="line"><span class="string">'semi-spacing'</span>: 2,                       // 强制分号之前和之后使用一致的空格</span><br><span class="line"><span class="string">'semi-style'</span>: 2,                         // 强制分号的位置</span><br><span class="line"><span class="string">'sort-keys'</span>: 2,                          // 要求对象属性按序排列</span><br><span class="line"><span class="string">'sort-vars'</span>: 2,                          // 要求同一个声明块中的变量按顺序排列</span><br><span class="line"><span class="string">'space-before-blocks'</span>: 2,                // 强制在块之前使用一致的空格</span><br><span class="line"><span class="string">'space-before-function-paren'</span>: 2,        // 强制在 <span class="keyword">function</span>的左括号之前使用一致的空格</span><br><span class="line"><span class="string">'space-in-parens'</span>: 2,                    // 强制在圆括号内使用一致的空格</span><br><span class="line"><span class="string">'space-infix-ops'</span>: 2,                    // 要求操作符周围有空格</span><br><span class="line"><span class="string">'space-unary-ops'</span>: 2,                    // 强制在一元操作符前后使用一致的空格</span><br><span class="line"><span class="string">'spaced-comment'</span>: 2,                     // 强制在注释中 // 或 /* 使用一致的空格</span><br><span class="line"><span class="string">'switch-colon-spacing'</span>: 2,               // 强制在 switch 的冒号左右有空格</span><br><span class="line"><span class="string">'template-tag-spacing'</span>: 2,               // 要求或禁止在模板标记和它们的字面量之间有空格</span><br><span class="line"><span class="string">'unicode-bom'</span>: 2,                        // 要求或禁止 Unicode 字节顺序标记 (BOM)</span><br><span class="line"><span class="string">'wrap-regex'</span>: 2,                         // 要求正则表达式被括号括起来</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这些规则只与 ES6 有关, 即通常所说的 ES2015(31项)：</span></span><br><span class="line"><span class="string">'arrow-body-style'</span>: 2,                   // 要求箭头函数体使用大括号</span><br><span class="line"><span class="string">'arrow-parens'</span>: 2,                       // 要求箭头函数的参数使用圆括号</span><br><span class="line"><span class="string">'arrow-spacing'</span>: 2,                      // 强制箭头函数的箭头前后使用一致的空格</span><br><span class="line"><span class="string">'constructor-super'</span>: 2,                  // 要求在构造函数中有 super() 的调用</span><br><span class="line"><span class="string">'generator-star-spacing'</span>: 2,             // 强制 generator 函数中 * 号周围使用一致的空格</span><br><span class="line"><span class="string">'no-class-assign'</span>: 2,                    // 禁止修改类声明的变量</span><br><span class="line"><span class="string">'no-confusing-arrow'</span>: 2,                 // 禁止在可能与比较操作符相混淆的地方使用箭头函数</span><br><span class="line"><span class="string">'no-const-assign'</span>: 2,                    // 禁止修改 const 声明的变量</span><br><span class="line"><span class="string">'no-dupe-class-members'</span>: 2,              // 禁止类成员中出现重复的名称</span><br><span class="line"><span class="string">'no-duplicate-imports'</span>: 2,               // 禁止重复模块导入</span><br><span class="line"><span class="string">'no-new-symbol'</span>: 2,                      // 禁止 Symbolnew 操作符和 new 一起使用</span><br><span class="line"><span class="string">'no-restricted-imports'</span>: 2,              // 禁止使用指定的 import 加载的模块</span><br><span class="line"><span class="string">'no-this-before-super'</span>: 2,               // 禁止在构造函数中，在调用 super() 之前使用 this 或 super</span><br><span class="line"><span class="string">'no-useless-computed-key'</span>: 2,            // 禁止在对象中使用不必要的计算属性</span><br><span class="line"><span class="string">'no-useless-constructor'</span>: 2,             // 禁用不必要的构造函数</span><br><span class="line"><span class="string">'no-useless-rename'</span>: 2,                  // 禁止在 import 和 <span class="built_in">export</span> 和解构赋值时将引用重命名为相同的名字</span><br><span class="line"><span class="string">'no-var'</span>: 2,                             // 要求使用 <span class="built_in">let</span> 或 const 而不是 var</span><br><span class="line"><span class="string">'object-shorthand'</span>: 2,                   // 要求或禁止对象字面量中方法和属性使用简写语法</span><br><span class="line"><span class="string">'prefer-arrow-callback'</span>: 2,              // 要求回调函数使用箭头函数</span><br><span class="line"><span class="string">'prefer-const'</span>: 2,                       // 要求使用 const 声明那些声明后不再被修改的变量</span><br><span class="line"><span class="string">'prefer-destructuring'</span>: 2,               // 优先使用数组和对象解构</span><br><span class="line"><span class="string">'prefer-numeric-literals'</span>: 2,            // 禁用 parseInt() 和 Number.parseInt()，使用二进制，八进制和十六进制字面量</span><br><span class="line"><span class="string">'prefer-rest-params'</span>: 2,                 // 要求使用剩余参数而不是 arguments</span><br><span class="line"><span class="string">'prefer-spread'</span>: 2,                      // 要求使用扩展运算符而非 .apply()</span><br><span class="line"><span class="string">'prefer-template'</span>: 2,                    // 要求使用模板字面量而非字符串连接</span><br><span class="line"><span class="string">'require-yield'</span>: 2,                      // 要求 generator 函数内有 yield</span><br><span class="line"><span class="string">'rest-spread-spacing'</span>: 2,                // 强制剩余和扩展运算符及其表达式之间有空格</span><br><span class="line"><span class="string">'sort-imports'</span>: 2,                       // 强制模块内的 import 排序</span><br><span class="line"><span class="string">'symbol-description'</span>: 2,                 // 要求 symbol 描述</span><br><span class="line"><span class="string">'template-curly-spacing'</span>: 2,             // 要求或禁止模板字符串中的嵌入表达式周围空格的使用</span><br><span class="line"><span class="string">'yield-star-spacing'</span>: 2,                 // 强制在 yield* 表达式中 * 周围使用空格</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">---------------------------本文结束<i class="fa fa-paw"></i>感谢您的阅读---------------------------</div>
+    
+</div>
+      
+    </div>
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.png" alt="梁磊 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>如果觉得我的文章对您有用，请随意赞赏。您的支持将鼓励我继续创作！</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="梁磊 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.png" alt="梁磊 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    梁磊
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.love2157dream.top/2018/12/17/ESLint规则配置/" title="ESLint规则配置">http://www.love2157dream.top/2018/12/17/ESLint规则配置/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ESLint配置/" rel="tag"><i class="fa fa-tag"></i> ESLint配置</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/22/window下安装Ruby/" rel="next" title="window下安装Ruby">
+                <i class="fa fa-chevron-left"></i> window下安装Ruby
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/liang.png"
+                alt="梁磊" />
+            
+              <p class="site-author-name" itemprop="name">梁磊</p>
+              <p class="site-description motion-element" itemprop="description">每天进步1%</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/love2157dream" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="2390779141@qq.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.jianshu.com/users/248557fda9ab/timeline" target="_blank" title="简书">
+                    
+                      <i class="fa fa-fw fa-heartbeat"></i>简书</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://juejin.im/user/57c77cfec4c971005419fd6a" target="_blank" title="掘金">
+                    
+                      <i class="fa fa-fw fa-spinner"></i>掘金</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://segmentfault.com/u/love2157dreams" target="_blank" title="segmentfault">
+                    
+                      <i class="fa fa-fw fa-free-code-camp"></i>segmentfault</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://stackoverflow.com/yourname" target="_blank" title="StackOverflow">
+                    
+                      <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ESLint-配置文件"><span class="nav-number">1.</span> <span class="nav-text">ESLint 配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ESLint-配置规则介绍"><span class="nav-number">2.</span> <span class="nav-text">ESLint 配置规则介绍</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">梁磊</span>
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">网站单词总数&#58;</span>
+    
+    <span title="网站单词总数">81.2k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+<div class="powered-by">
+  <i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_pv"></span>
+  </span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
